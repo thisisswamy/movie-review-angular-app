@@ -1,1 +1,47 @@
-<p>signup works!</p>
+<div class="wrapper">
+    <div class="login-container">
+        <form [formGroup]="signUpForm">
+            <h1>Sign up</h1>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label>Username</mat-label>
+              <input matInput 
+              formControlName="email" 
+              [errorStateMatcher]="matcher"
+              placeholder="Enter username">
+              <mat-error *ngIf="signUpForm.get('email')?.hasError('email') && !signUpForm.get('email')?.hasError('required')">
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="signUpForm.get('email')?.hasError('required')">
+                Username is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label>Password</mat-label>
+              <input [type]="!hide ? 'password' : 'text'"  matInput formControlName="password" [errorStateMatcher]="matcher"
+                     placeholder="Enter username">
+                     <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <mat-error class="err-msg" *ngIf="signUpForm.get('password')?.hasError('required')">
+                Password is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label>Confirm Password</mat-label>
+              <input [type]="!hide ? 'password' : 'text'"  matInput formControlName="confirmPassword" [errorStateMatcher]="matcher"
+                     placeholder="Enter username">
+                     <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <mat-error class="err-msg" *ngIf="signUpForm.get('confirmPassword')?.hasError('required')">
+                confirm password is <strong>required</strong>
+               
+              </mat-error>
+              <mat-error class="err-msg" *ngIf="!signUpForm?.errors?.['misMatch'] && !signUpForm.get('confirmPassword')?.hasError('required')">
+                password and confirm password mismatch
+              </mat-error>
+            </mat-form-field>
+            <div class="button-area">
+                <button>Submit</button>
+            </div>
+          </form>
+          
+    </div>
+
+</div>

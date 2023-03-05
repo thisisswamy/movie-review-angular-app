@@ -1,1 +1,36 @@
-<p>login works!</p>
+<div class="wrapper">
+    <div class="login-container">
+        <form [formGroup]="loginForm">
+            <h1>Login</h1>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label>Username</mat-label>
+              <input matInput 
+              formControlName="email" 
+              [errorStateMatcher]="matcher"
+              placeholder="Enter username">
+              <mat-error *ngIf="loginForm.get('email')?.hasError('email') && !loginForm.get('email')?.hasError('required')">
+                Please enter a valid email address
+              </mat-error>
+              <mat-error *ngIf="loginForm.get('email')?.hasError('required')">
+                Username is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label>Password</mat-label>
+              <input [type]="!hide ? 'password' : 'text'"  matInput formControlName="password" [errorStateMatcher]="matcher"
+                     placeholder="Enter username">
+                     <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <mat-error class="err-msg" *ngIf="loginForm.get('password')?.hasError('required')">
+                Password is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+            <div class="button-area">
+                <button>Login</button>
+                <small><a routerLink="/user/sign-up">create account</a></small><br>
+
+            </div>
+          </form>
+          
+    </div>
+
+</div>

@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { UserRoutingModule } from './user-routing.module';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../common/shared/shared.module';
 
 
 @NgModule({
@@ -13,7 +15,10 @@ import { SignupComponent } from './signup/signup.component';
   ],
   imports: [
     CommonModule,
-    UserRoutingModule
+    FormsModule,
+    ReactiveFormsModule,
+    UserRoutingModule,
+    SharedModule
   ]
 })
 export class UserModule { }
