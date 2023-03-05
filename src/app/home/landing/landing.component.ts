@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class LandingComponent {
 
+  login(){
+    console.log("clicked,,");
+    
+  }
+
 }

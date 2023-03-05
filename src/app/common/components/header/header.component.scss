@@ -63,7 +63,10 @@
           cursor: pointer;
           span{
             position: relative;
-            top: 6px;
+            top: 8px;
+            .mat-icon{
+              font-size: 1.27em;
+            }
           }
         }
 
