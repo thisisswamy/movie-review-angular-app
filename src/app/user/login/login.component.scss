@@ -5,11 +5,12 @@
     margin: 3em;
     .login-container{
         max-width: 600px;
-        min-width: 450px;
+        min-width: 400px;
         width: 100%;
-        padding: 25px;
-        border-radius: 8px;
+        padding: 20px  35px;
+        border-radius: 5px;
         box-shadow: 0 0 10px 0 rgba(0 0 0/10%);
+        border-bottom: 5px solid #222;
         form{
             display: flex;
             flex-direction: column;
@@ -18,22 +19,79 @@
                 margin:0 0 .2em 0;
                 //border-bottom: 2px solid rgb(13, 13, 188);
             }
+            .user-pwd-error{
+                font-size: .9em;
+                color: red;
+            }
+            .form-input{
+                position: relative;
+                label{
+                    font-size: 1em;
+                }
+                label:after{
+                    content: "*";
+                    color: red;
+                }
+                input{
 
-            .mat-form-field{
-                .mat-icon{
-                    color: #222;
+                    border: 1.2px solid #b1b1b1b1;
+                    width: 100%;
+                    border-radius: 4px;
+                    padding: 10px;                   
+                }
+                .error-class{
+                    border: 1.5px solid red;
                 }
                 small{
-                    
+                    color: red;
+                    font-size: .8em;
+                }
+                input:focus{
+                    border: none;
+                    outline: none;
+                    background-color: #f1f3f4;
+                    border-bottom: 2px solid #000000;
+                }
+                .eye-icon{
+                    position: absolute;
+                    right: 10px;
+                    top: 33px;
+
                 }
             }
-            .button-area{
-                small{
-                    margin-top: .7em;
-                    a{
-                        font-size: 1.2em;
-                        color: rgb(0, 0, 252);
+            .password-info{
+                background-color: #f1f3f4;
+                color: #222;
+                border-radius: 8px;
+                padding: 6px;
+                p{
+                    margin: 2px 0 4px 0;
+                    font-size: .7em;
+                    border-bottom: 1.2px solid #000000;
+                    display: inline-block;
+                }
+                ul{
+                    margin: 0;
+                    padding: 0;
+                    font-size: .6em;
+                    font-style: italic;
+                    list-style: none;
+                    li::before{
+                        content: "-";
+                        padding: 0 8px;
                     }
+
+                }
+            }
+
+            
+            .button-area{
+                display: flex;
+                flex-direction: column;
+                gap: .5em;
+                text-align: center;
+                a{
+                    color: rgb(29, 29, 237);
                 }
                 button{
                     width: 100%;
@@ -43,15 +101,16 @@
                     color: #fff;
                     padding: 12px 0;
                     border-radius: 3px;
-                    font-size: 1.1em;
+                    font-size: 1em;
                     cursor: pointer;
-                    letter-spacing: 1px;
+                    // letter-spacing: 1px;
                 }
                 button:hover{
-                    background-color: rgb(182, 4, 4);
+                    background-color: red
                 }
             }
         }
        
     }
 }
+

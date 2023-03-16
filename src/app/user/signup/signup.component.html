@@ -1,44 +1,56 @@
 <div class="wrapper">
     <div class="login-container">
-        <form [formGroup]="signUpForm">
+        <form [formGroup]="signUpForm" (ngSubmit)="submit()">
             <h1>Sign up</h1>
-            <mat-form-field appearance="outline" class="example-full-width">
-              <mat-label>Username</mat-label>
-              <input matInput 
+            <div class="form-input">
+              <label for="">E-mail</label>
+              <input type="text" 
               formControlName="email" 
-              [errorStateMatcher]="matcher"
-              placeholder="Enter username">
-              <mat-error *ngIf="signUpForm.get('email')?.hasError('email') && !signUpForm.get('email')?.hasError('required')">
-                Please enter a valid email address
-              </mat-error>
-              <mat-error *ngIf="signUpForm.get('email')?.hasError('required')">
-                Username is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-            <mat-form-field appearance="outline" class="example-full-width">
-              <mat-label>Password</mat-label>
-              <input [type]="!hide ? 'password' : 'text'"  matInput formControlName="password" [errorStateMatcher]="matcher"
-                     placeholder="Enter username">
-                     <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-              <mat-error class="err-msg" *ngIf="signUpForm.get('password')?.hasError('required')">
-                Password is <strong>required</strong>
-              </mat-error>
-            </mat-form-field>
-            <mat-form-field appearance="outline" class="example-full-width">
-              <mat-label>Confirm Password</mat-label>
-              <input [type]="!hide ? 'password' : 'text'"  matInput formControlName="confirmPassword" [errorStateMatcher]="matcher"
-                     placeholder="Enter username">
-                     <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-              <mat-error class="err-msg" *ngIf="signUpForm.get('confirmPassword')?.hasError('required')">
-                confirm password is <strong>required</strong>
-               
-              </mat-error>
-              <mat-error class="err-msg" *ngIf="!signUpForm?.errors?.['misMatch'] && !signUpForm.get('confirmPassword')?.hasError('required')">
-                password and confirm password mismatch
-              </mat-error>
-            </mat-form-field>
+              placeholder="Enter your email address"
+              [class.error-class]="signUpForm.get('email')?.errors && signUpForm.get('email')?.touched"
+              >
+              <small *ngIf="signUpForm.get('email')?.hasError('required') && signUpForm.get('email')?.touched">Email is required</small>
+              <small *ngIf="!signUpForm.get('email')?.hasError('reuired') && signUpForm.get('email')?.hasError('email')">Invalid email address</small>
+            </div>
+            <div class="form-input">
+              <label for="">Password</label>
+              <span class="eye-icon" (click)="isPwdHide = !isPwdHide">
+                <mat-icon>{{isPwdHide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </span>
+              <input [type]="isPwdHide ? 'text':'password'"
+              formControlName="password"  
+              placeholder="Enter your password"
+              [class.error-class]="signUpForm.get('password')?.errors && signUpForm.get('password')?.touched"
+              >
+              <small *ngIf="signUpForm.get('password')?.hasError('required') && signUpForm.get('password')?.touched">Password is required</small>
+              <small *ngIf="!signUpForm.get('password')?.hasError('required') && signUpForm.get('password')?.hasError('pattern') && signUpForm.get('password')?.touched">Invalid Password</small>
+            </div>
+            <div class="password-info">
+              <p>Password Requirements</p>
+              <ul>
+                <li>Password should 8 charcters in length</li>
+                <li>Password should contain atleast one uppercase letter </li>
+                <li>Password should contain atleast one Lowercase letter </li>
+                <li>Password should contain atleast one digit </li>
+                <li>Password should contain atleast one special character</li>
+              </ul>
+
+            </div>
+            <div class="form-input">
+              <label for="">Confirm Password</label>
+              <input type="text" 
+              formControlName="confirmPassword" 
+              placeholder="Enter your confirm password"
+              [class.error-class]="(signUpForm.get('confirmPassword')?.errors && signUpForm.get('confirmPassword')?.touched) || (signUpForm.get('confirmPassword')?.value !== signUpForm.get('password')?.value && signUpForm.get('confirmPassword')?.touched)"
+              >
+              <small  *ngIf="signUpForm.get('confirmPassword')?.hasError('required') && signUpForm.get('confirmPassword')?.touched">Confirm password required</small>
+              <small  *ngIf="signUpForm.get('confirmPassword')?.value !== signUpForm.get('password')?.value && signUpForm.get('confirmPassword')?.touched">Confirm password mismatch</small>
+            </div>
+           
             <div class="button-area">
                 <button>Submit</button>
+                (or)
+                <a routerLink="/user/login">Login</a>
             </div>
           </form>
           

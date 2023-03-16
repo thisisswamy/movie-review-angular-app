@@ -11,7 +11,9 @@ export class LoginComponent implements OnInit  {
 
   matcher = new MyErrorStateMatcher();
   loginForm!:FormGroup;
-  hide!:boolean;
+  isPwdHide!:boolean;
+  isInvalidCreds!:boolean;
+  errorMsg='Invalid Username/Password'
 
   constructor(private fb:FormBuilder){}
 
@@ -20,6 +22,14 @@ export class LoginComponent implements OnInit  {
       email:['',[Validators.required,Validators.email]],
       password:['',[Validators.required]]
     })
+  }
+
+  submit(){
+    if(this.loginForm.invalid){
+      this.loginForm.markAllAsTouched()
+      return;
+    }
+    console.log(this.loginForm.value);
   }
 
 
