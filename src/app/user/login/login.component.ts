@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MyErrorStateMatcher } from 'src/app/common/services/Error-handler';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,7 @@ export class LoginComponent implements OnInit  {
   isInvalidCreds!:boolean;
   errorMsg='Invalid Username/Password'
 
-  constructor(private fb:FormBuilder){}
+  constructor(private fb:FormBuilder,private router:Router){}
 
   ngOnInit(): void {
     this.loginForm =this.fb.group({
@@ -29,6 +30,7 @@ export class LoginComponent implements OnInit  {
       this.loginForm.markAllAsTouched()
       return;
     }
+    this.router.navigate(['/movie-catalog'])
     console.log(this.loginForm.value);
   }
 

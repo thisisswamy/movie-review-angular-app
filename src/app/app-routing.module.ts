@@ -10,6 +10,10 @@ const routes: Routes = [
     path:'user',
     loadChildren :()=>import('./user/user.module').then(m=>m.UserModule)
   },
+  {
+    path:'movie-catalog',
+    loadChildren :()=> import('./movie-landing/movie-landing.module').then(m=>m.MovieLandingModule)
+  }
 ];
 
 @NgModule({
