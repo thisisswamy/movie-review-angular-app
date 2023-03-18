@@ -59,9 +59,9 @@
               <input type="file" 
               formControlName="poster" 
               placeholder="upload poster"
-              [class.error-class]="(reviewForm.get('verdict')?.errors && reviewForm.get('verdict')?.touched)"
+              [class.error-class]="(reviewForm.get('poster')?.errors && reviewForm.get('poster')?.touched)"
               >
-              <small  *ngIf="reviewForm.get('verdict')?.hasError('required') && reviewForm.get('verdict')?.touched">Poster is required</small>
+              <small  *ngIf="reviewForm.get('poster')?.hasError('required') && reviewForm.get('poster')?.touched">Poster is required</small>
              
             </div>
             
