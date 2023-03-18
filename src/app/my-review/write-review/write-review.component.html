@@ -61,7 +61,7 @@
               placeholder="upload poster"
               [class.error-class]="(reviewForm.get('verdict')?.errors && reviewForm.get('verdict')?.touched)"
               >
-              <small  *ngIf="reviewForm.get('verdict')?.hasError('required') && reviewForm.get('verdict')?.touched">Verdict is required</small>
+              <small  *ngIf="reviewForm.get('verdict')?.hasError('required') && reviewForm.get('verdict')?.touched">Poster is required</small>
              
             </div>
             
