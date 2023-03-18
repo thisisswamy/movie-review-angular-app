@@ -1,0 +1,66 @@
+.review-card{
+    display: flex;
+    margin-top: .5em;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    border-bottom: 1.5px solid #222;
+    padding: 10px;
+    gap: 1em;
+    border-radius: 3px;
+    box-shadow: 0 0 10px 0 rgba(0 0 0/10%);
+   
+    .area{
+        width: 30%;
+    }
+    .title{
+        display: flex;
+        align-items: center;
+        gap: .5em;
+        p{
+            font-size: 1em;
+
+        }
+        span{
+            color: #9f9a9a;
+            font-size: .8em;
+        }
+    }
+    .rating{
+        display: flex;
+        align-items: center;
+        flex-direction: row-reverse;
+        span{
+            .mat-icon{
+
+                padding-top: 5px;
+                font-size: 1.2em;
+            }
+        }
+    }
+    .actions{
+        display: flex;
+        gap: 1em;
+        flex-direction: row-reverse;
+
+        span{
+            cursor: pointer;
+        }
+    }
+
+    @media(max-width:1020px){
+        flex-direction: column;
+        // align-items: baseline;
+    }
+
+
+}
+.review-card:hover{
+    background-color: #222;
+    color: #ffffff;
+    cursor: pointer;
+
+    .actions{
+        color: #ffff;
+    }
+}

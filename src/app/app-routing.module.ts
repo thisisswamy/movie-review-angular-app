@@ -11,8 +11,13 @@ const routes: Routes = [
     loadChildren :()=>import('./user/user.module').then(m=>m.UserModule)
   },
   {
-    path:'movie-catalog',
+    path:'home',
     loadChildren :()=> import('./movie-landing/movie-landing.module').then(m=>m.MovieLandingModule)
+  },
+  {
+    path:'my-reviews',
+    loadChildren:()=>import('./my-review/my-review.module').then(m=>m.MyReviewModule)
+
   }
 ];
 

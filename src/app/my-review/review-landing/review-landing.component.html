@@ -1,0 +1,9 @@
+<div class="wrapper">
+    <div class="landing-title">
+        <p>My Reviews</p>
+        <button routerLink="/my-reviews/write-review">+ Write</button>
+    </div>
+    <div class="review-section" *ngFor="let movie of moviesList">
+        <app-review-card [movieDetails]="movie"></app-review-card>
+    </div>
+</div>

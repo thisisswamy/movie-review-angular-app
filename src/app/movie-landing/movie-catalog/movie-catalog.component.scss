@@ -1,0 +1,133 @@
+.wrapper{
+    margin: 1em 2em;
+    .welcome-note{
+        background-color: #fff;
+        color: #222;
+        padding: 20px;
+        border-radius: 8px;
+        // text-align: center;
+        box-shadow: 0 0 5px 0 rgba(0 0 0/10%);
+    }
+    .separator{
+        margin: 2em 1em;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        // gap: 1em;
+        span{
+            height: 1px;
+            width: 100%;
+            border: 2px solid #222;
+        }
+        .name{
+            border: none;
+            color: #fff;
+            background-color: #222;
+            height: 40px;
+            padding: 5px 10px;
+            text-align: center;
+            font-size: 1.2em;
+            border-radius: 3px;
+            
+        }
+    }
+    .search-item{
+        margin: 2em 0;
+        display: flex;
+        flex-wrap:wrap;
+        justify-content: center;
+        gap: 1em;
+        input{
+            padding: 14px;
+            width: 80%;
+            outline: none;
+            border: 1.2px solid #dddd;
+            border-radius: 3px;
+
+            @media(max-width:1020px){
+                width: 100%;
+            }
+        }
+        input:focus{
+            border-bottom: 1.4px solid #222;
+        }
+       
+        button{
+            outline: none;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-size: 1em;
+            background-color: #222;
+            color: #ffff;
+
+        }
+    }
+    .movie-catalogs{
+        .movie-card{
+            cursor: pointer;;
+            width: 300px;
+            border: 1.2px solid #eeee;
+            border-radius: 8px;
+            box-shadow: 0 0 10px 0 rgba(0 0 0/10%);
+            .card-header{
+                .card-logo{
+                    img{
+                        width: 100%;
+                        border-radius: 8px;
+
+                    }
+                }
+                .card-title{
+                    margin: 0 .5em;
+                    border-bottom: 1px solid #222;
+                }
+            }
+            .movie-des{
+                padding: 5px;
+                font-size: .8em;
+                ul{
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                    li{
+                        span{
+                            padding-right: 5px;
+                            color: #686060dd;
+                        }
+                    }
+                }
+            }
+            .actions{
+                margin: .5em;
+                display: flex;
+                flex-direction: row-reverse;
+                gap: 1em;
+                span{
+                    padding: 2px 5px;
+                    border-radius: 50%;
+                    border: 1px solid #222;
+                    .mat-icon{
+                        padding-top:2px;
+                        margin: 0;
+                    }
+
+                }
+                .delete-icon{
+                    border: none;
+                    background-color: red;
+                    color: #ffff;
+                }
+                .edit-icon{
+                    border: none;
+                    background-color: #eeee;
+                }
+            }
+            
+        }
+        .movie-card:hover{
+            // color: #ffffff;
+            // background-color: #3d517e;
+        }
+    }
+}

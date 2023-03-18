@@ -1,0 +1,19 @@
+<div class="review-card">
+    <div class="title  area">
+        <p> {{movieDetails.name}}</p> <span>({{movieDetails.lang}})</span>
+    </div>
+    <div class="rating area">
+        <span>
+            <mat-icon>star</mat-icon>
+        </span>
+        {{movieDetails.rating}}
+    </div>
+    <div class="actions area">
+        <span matTooltip="delete">
+            <mat-icon>delete</mat-icon>
+        </span>
+        <span matTooltip="no edit" >
+            <mat-icon>edit</mat-icon>
+        </span>
+    </div>
+</div>

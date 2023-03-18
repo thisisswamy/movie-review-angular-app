@@ -1,4 +1,4 @@
-<div class="header-wrapper" *ngIf="false">
+<div class="header-wrapper" *ngIf="true">
     <div class="header">
         <div class="title-logo">
             <div>
@@ -12,15 +12,15 @@
         </div>
         <div class="nav-items" [ngClass]="isMenuOpen ? 'active' : ''">
             <ul>
-                <li>
+                <li routerLink="/home">
                     <span><mat-icon>home</mat-icon></span>
                     Home
                 </li>
-                <li>
+                <li >
                     <span><mat-icon>movie</mat-icon></span>
                     Movies
                 </li>
-                <li>
+                <li routerLink="/my-reviews">
                     <span><mat-icon>stars</mat-icon></span>
                     My Reviews</li>
                 <li>

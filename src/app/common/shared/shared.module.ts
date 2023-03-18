@@ -3,8 +3,9 @@ import { CommonModule } from '@angular/common';
 import {MatIconModule} from '@angular/material/icon';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
-const materialImports:any[]=[MatIconModule,MatInputModule,MatFormFieldModule]
+const materialImports:any[]=[MatIconModule,MatInputModule,MatFormFieldModule,MatTooltipModule]
 
 
 @NgModule({
