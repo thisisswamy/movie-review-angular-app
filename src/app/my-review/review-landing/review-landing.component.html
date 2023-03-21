@@ -3,7 +3,7 @@
         <p>My Reviews</p>
         <button routerLink="/my-reviews/write-review">+ Write</button>
     </div>
-    <div class="review-section" *ngFor="let movie of moviesList">
-        <app-review-card [movieDetails]="movie"></app-review-card>
+    <div class="review-section" >
+        <app-review-card [movieDetails]="moviesList"></app-review-card>
     </div>
 </div>

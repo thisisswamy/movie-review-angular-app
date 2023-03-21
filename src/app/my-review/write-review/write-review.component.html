@@ -62,10 +62,7 @@
               [class.error-class]="(reviewForm.get('poster')?.errors && reviewForm.get('poster')?.touched)"
               >
               <small  *ngIf="reviewForm.get('poster')?.hasError('required') && reviewForm.get('poster')?.touched">Poster is required</small>
-             
             </div>
-            
-           
             <div class="button-area">
                 <button>Submit</button>
             </div>

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MyErrorStateMatcher } from 'src/app/common/services/Error-handler';
 import { Router } from '@angular/router';
+import { ApplicationState } from '../../store/state/application.state';
+import { Store } from '@ngrx/store';
+import { UserStatus } from '../../store/action/user-login.actions';
 
 @Component({
   selector: 'app-login',
@@ -14,9 +17,11 @@ export class LoginComponent implements OnInit  {
   loginForm!:FormGroup;
   isPwdHide!:boolean;
   isInvalidCreds!:boolean;
+  
   errorMsg='Invalid Username/Password'
 
-  constructor(private fb:FormBuilder,private router:Router){}
+  constructor(private fb:FormBuilder,private router:Router,
+    private store:Store<ApplicationState>){}
 
   ngOnInit(): void {
     this.loginForm =this.fb.group({
@@ -30,7 +35,8 @@ export class LoginComponent implements OnInit  {
       this.loginForm.markAllAsTouched()
       return;
     }
-    this.router.navigate(['/movie-catalog'])
+    this.store.dispatch(new UserStatus({isUserLoggedIn:true}))
+    this.router.navigate(['/home'])
     console.log(this.loginForm.value);
   }
 

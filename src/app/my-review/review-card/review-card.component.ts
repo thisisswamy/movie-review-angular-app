@@ -8,11 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class ReviewCardComponent implements OnInit {
   
   @Input()
-  movieDetails={
-    name:'RRR',
-    rating:'4/5',
-    lang:'Telugu'
-  }
+  movieDetails:any
   ngOnInit(): void {
    
   }
