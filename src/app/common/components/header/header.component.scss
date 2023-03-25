@@ -83,12 +83,14 @@
       .nav-items{
         visibility: hidden;
         opacity: 0;
+        top: 0;
         ul{
           flex-direction: column;
           position: fixed;
           left: 0;
           top: 67px;
           height: 50vh;
+          z-index:1;
           background-color: #ffff;
           width: 180px;
           padding: 10px;

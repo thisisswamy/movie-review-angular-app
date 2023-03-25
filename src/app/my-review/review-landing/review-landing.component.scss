@@ -25,4 +25,36 @@
         
 
     }
+    .search-item{
+        margin: 2em 0;
+        display: flex;
+        flex-wrap:wrap;
+        justify-content: center;
+        gap: 1em;
+        input{
+            padding: 14px;
+            width: 80%;
+            outline: none;
+            border: 1.2px solid #dddd;
+            border-radius: 3px;
+
+            @media(max-width:1020px){
+                width: 100%;
+            }
+        }
+        input:focus{
+            border-bottom: 1.4px solid #222;
+        }
+       
+        button{
+            outline: none;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 6px;
+            font-size: 1em;
+            background-color: #222;
+            color: #ffff;
+
+        }
+    }
 }

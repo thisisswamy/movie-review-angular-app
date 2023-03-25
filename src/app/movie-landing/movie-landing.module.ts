@@ -7,13 +7,12 @@ import { SharedModule } from '../common/shared/shared.module';
 
 
 @NgModule({
-  declarations: [
-    MovieCatalogComponent
-  ],
+  declarations: [MovieCatalogComponent],
   imports: [
     CommonModule,
     MovieLandingRoutingModule,
-    SharedModule
-  ]
+    SharedModule,
+
+  ],
 })
-export class MovieLandingModule { }
+export class MovieLandingModule {}

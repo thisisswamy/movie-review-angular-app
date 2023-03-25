@@ -5,13 +5,13 @@
     </div>
     <div class="separator">
         <span></span>
-        <span class="name">Reviewed Movies</span>
+        <span class="name">Recent Reviewed Movies</span>
         <span></span>
     </div>
-    <div class="search-item">
+    <!-- <div class="search-item">
         <input type="text" placeholder="Search Movie Here">
         <button>search</button>
-    </div>
+    </div> -->
     <div class="movie-catalogs">
         <div class="movie-card" >
             <div class="card-header">
@@ -38,6 +38,42 @@
                     <mat-icon>edit</mat-icon>
                 </span>
             </div>
+        </div>
+    </div>
+
+    <div class="movie-slider">
+        <p>Latest movies</p>
+       <div class="slider">
+        <div class="img-slider">
+            <span class="prev" (click)="prevImage($event)" *ngIf="isFirstImg" matTooltip="previous"> < </span>
+            <span class="next" (click)="nextImage($event)" *ngIf="!isLastImg" matTooltip="next"> > </span>
+            
+             <img [src]="imgURL" alt="Movie Logo">
+             <div class="display-item">
+                <ul>
+                    <li *ngFor="let obj of imgList;index as i" [ngClass]="index===i ? 'active': ''" ></li>
+                    
+                </ul>
+            </div>
+        </div>
+       </div>
+        
+
+    </div>
+    <div class="walk-notes">
+        <div class="note-des">
+            <div class="note">
+                <h2>Rey, What are you doing ?</h2>
+                <p>Pora howlee.. I am busy in wrting reviews </p>
+                <small>Now onwards use this app to store your valuable thoughts and review ideas, go ahead hit <b>My Review </b> start writting review for your favourate movie.
+                
+                you can also search or find a movie from here also. What are you waiting for ? </small>
+            </div>
+            <div class="logo">
+                <img src="../../../assets/images/movie_content_watch.png" alt="">
+            </div>
+            
+
         </div>
     </div>
 </div>
