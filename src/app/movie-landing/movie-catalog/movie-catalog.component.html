@@ -45,8 +45,8 @@
         <p>Latest movies</p>
        <div class="slider">
         <div class="img-slider">
-            <span class="prev" (click)="prevImage($event)" *ngIf="isFirstImg" matTooltip="previous"> < </span>
-            <span class="next" (click)="nextImage($event)" *ngIf="!isLastImg" matTooltip="next"> > </span>
+            <span class="prev" (click)="prevImage()" *ngIf="isFirstImg" matTooltip="previous"> < </span>
+            <span class="next" (click)="nextImage()" *ngIf="!isLastImg" matTooltip="next"> > </span>
             
              <img [src]="imgURL" alt="Movie Logo">
              <div class="display-item">

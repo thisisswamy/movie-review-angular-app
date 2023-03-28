@@ -17,12 +17,18 @@
             </ul>
         </div>
         <div class="actions">
-            <span class="delete-icon" matTooltip="Delete" matTooltipPosition="above">
+            <span class="delete-icon" matTooltip="Delete" matTooltipPosition="above" (click)="delete($event)">
                 <mat-icon>delete</mat-icon>
             </span>
             <span class="edit-icon" matTooltip="Edit" matTooltipPosition="above">
                 <mat-icon>edit</mat-icon>
             </span>
         </div>
+    </div>
+</div>
+
+<div class="delete-popup" [ngClass]="isDeleteClicked ? 'active':''">
+    <div class="popup">
+        <app-popup (deletePopup)="deleteEvent($event)"></app-popup>
     </div>
 </div>

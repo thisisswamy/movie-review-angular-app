@@ -14,7 +14,8 @@ import { applicationReducers } from './store/reducers/application.reducer';
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+
   ],
   imports: [
     BrowserModule,

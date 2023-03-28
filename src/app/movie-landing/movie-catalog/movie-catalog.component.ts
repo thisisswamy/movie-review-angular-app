@@ -25,7 +25,7 @@ export class MovieCatalogComponent implements OnInit {
     this.imgURL = this.baseURL+this.imgName
   }
 
-  prevImage(event: any){
+  prevImage(){
     this.index -=1 
     this.imgName=this.imgList[this.index]
     if(this.imgList.indexOf(this.imgName)> -1){
@@ -39,7 +39,7 @@ export class MovieCatalogComponent implements OnInit {
     }
 
   }
-  nextImage(event: any) {
+  nextImage() {
     this.isFirstImg=true;
     this.index +=1 
     this.imgName=this.imgList[this.index]

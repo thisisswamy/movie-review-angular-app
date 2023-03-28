@@ -58,3 +58,37 @@
         }
     }
 }
+
+
+.delete-popup{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+    visibility: hidden;
+    opacity: 0;
+    transition: all .5s ease-in-out;
+
+    .popup{
+        background-color: #fff;
+        min-width: 300px;
+        max-width: 500px;
+        width: 100%;
+        border-radius: 5px;
+    }
+
+}
+
+.active{
+    visibility: visible;
+    opacity: 1;
+}
+.delete-popup .active{
+    transform: translateY(-10px);
+}
+
