@@ -20,6 +20,12 @@ export class MovieCatalogComponent implements OnInit {
   baseURL: any = '../../../assets/images/';
   imgName:any;
   imgURL:any;
+
+  recentMovieList =[
+    { name:'RRR',rating :'5',lang:'Telugu'},
+    { name:'KGF',rating :'4',lang:'Kannada'},
+    { name:'Kantara',rating :'9',lang:'Kannada'},
+    { name:'Veera Simha',rating :'3',lang:'Telugu'}]
   ngOnInit(): void {
     this.imgName=this.imgList[this.index];
     this.imgURL = this.baseURL+this.imgName
