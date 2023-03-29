@@ -1,5 +1,5 @@
 .wrapper{
-    background-color: #222;
+    background-color: #ffff;
     .app-poster{
         position: relative;
         top: 0px;
@@ -13,16 +13,16 @@
         justify-content: center;
         align-items: center;
         .poster-note{
-            background-color: #333;
-            opacity: 1;
+            background-color: #fff;
             height: 300px;
             min-width: 150px;
             max-width:850px;
             width: 100%;
             position: absolute;
             z-index: 1;
-            opacity: .8;
+            opacity: .7;
             border-radius: 10px;
+            
 
             @media(max-width:1020px){
                 min-height:400px ;
@@ -35,7 +35,7 @@
             padding: 40px;
             position: absolute;
             z-index: 2;
-            color: #fff;
+            color: #1b263b;
             .note-line{
                 // color: #ffff;
                 font-size: 3em;
@@ -53,20 +53,20 @@
                     font-size: 1.6em;
                     display: inline-block;
                     
-                    border-bottom: 2px solid red;
+                    border-bottom: 2px solid #001d3d;;
                 }
                 .sign-ups{
                     padding-top: 16px;
                     opacity: 2;
 
                     button{
-                        border: none;
+                        border:none;
                         outline: none;
-                        border-radius: 5px;
+                        border-radius: 1px;
                         color: #fff;
                         font-size: 1em;
                         cursor: pointer;
-                        background-color: red
+                        background-color: #001d3d;
                     }
                     button:hover{
                         background-color: rgb(206, 4, 4)
@@ -94,10 +94,12 @@
             gap: 1.5em;
             padding: 18px;
             margin-top: 1em;
-            box-shadow: 0 0 10px 0 rgba(0 0 0/20%);
-            border-radius: 8px;
-            background-color: #333;
-            color: #fff;
+            box-shadow: 0 0 10px 0 rgba(0 0 0/10%);
+            border-radius: 4px;
+            background-color: #fff;
+            color: #001d3d;
+            border: 1.2px solid #eee;
+            border-bottom: 2px solid #001d3d;;
             .movie-logo{
                 width: 800px;
                 position: relative;
@@ -177,8 +179,8 @@
                         padding:1px 6px;
                         border-radius: 3px;
                         font-size: .8em;
-                        color: #222;
-                        background-color: #b1b1b1;
+                        color: #001d3d;;
+                        background-color: #adb5bd;;
 
                     }
                 }

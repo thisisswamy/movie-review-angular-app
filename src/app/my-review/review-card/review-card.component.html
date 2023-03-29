@@ -12,17 +12,22 @@
             <ul>
                 <li><span>Category :</span> Action & Drama</li>
                 <li><span>Cast&Crew :</span> NTR, Ramcharan, Rajamouli</li>
-                <li><span>Rating :</span> 4.5/5</li>
                 <li><span>Verdict :</span> Blockbuster</li>
+                <li><span>Rating :</span> 4.5/5 
+                    <span>
+                    <mat-icon>star</mat-icon>
+                    </span>
+                </li>
+                
             </ul>
         </div>
         <div class="actions">
-            <span class="delete-icon" matTooltip="Delete" matTooltipPosition="above" (click)="delete($event)">
+            <span class="delete-icon"   (click)="delete($event)">
                 <mat-icon>delete</mat-icon>
             </span>
-            <span class="edit-icon" matTooltip="Edit" matTooltipPosition="above">
+            <!-- <span class="edit-icon" matTooltip="Edit" matTooltipPosition="above">
                 <mat-icon>edit</mat-icon>
-            </span>
+            </span> -->
         </div>
     </div>
 </div>
