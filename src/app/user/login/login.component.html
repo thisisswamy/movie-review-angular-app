@@ -25,6 +25,9 @@
             <small *ngIf="loginForm.get('password')?.hasError('required') && loginForm.get('password')?.touched">Password is required</small>
             <small *ngIf="!loginForm.get('password')?.hasError('required') && loginForm.get('password')?.hasError('pattern') && loginForm.get('password')?.touched">Invalid Password</small>
           </div>
+          <div class="forgot-pass">
+            <a routerLink="/user/forgot-password">forgot password ?</a>
+          </div>
           <div class="button-area">
               <button>Login</button>
               (or)

@@ -8,10 +8,11 @@
         cursor: pointer;;
        width: 100%;
         border: 1.2px solid #dddd;
-        border-bottom: 2px solid #333;
+        border-bottom: 2px solid #1b263b;
         border-radius: 5px;
         // box-shadow: 0 0 10px 0 rgba(0 0 0/10%);
         transition: all .5s ease-in-out;
+        position: relative;
         .card-header{
             .card-logo{
                 img{
@@ -36,6 +37,13 @@
                     span{
                         padding-right: 5px;
                         color: #686060dd;
+                        .mat-icon{
+                            font-size: 1.4em;
+                            position: relative;
+                            top: 10px;
+                            color: #ffc600;
+                        }
+                   
                     }
                 }
             }
@@ -56,9 +64,14 @@
 
             }
             .delete-icon{
+                position: absolute;
+                top: 5px;
                 border: none;
-                background-color: red;
-                color: #ffff;
+                color: #1b263b;
+                background-color: #f1f1f1;
+            }
+            .delete-icon:hover{
+                color: red;
             }
             .edit-icon{
                 border: none;

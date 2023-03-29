@@ -16,12 +16,12 @@ const routes: Routes = [
   },
   {
     path:'home',
-    // canActivate:[AuthenticationGuard],
+    canActivate:[AuthenticationGuard],
     loadChildren :()=> import('./movie-landing/movie-landing.module').then(m=>m.MovieLandingModule)
   },
   {
     path:'my-reviews',
-    // canActivate:[AuthenticationGuard],
+    canActivate:[AuthenticationGuard],
     loadChildren:()=>import('./my-review/my-review.module').then(m=>m.MyReviewModule)
 
   },
