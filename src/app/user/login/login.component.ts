@@ -35,6 +35,8 @@ export class LoginComponent implements OnInit  {
       this.loginForm.markAllAsTouched()
       return;
     }
+    console.log(window.btoa(this.loginForm.get('password')?.value));
+    
     this.store.dispatch(new UserStatus({isUserLoggedIn:true}))
     this.router.navigate(['/home'])
     console.log(this.loginForm.value);
