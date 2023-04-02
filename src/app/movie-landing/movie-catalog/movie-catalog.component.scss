@@ -98,7 +98,8 @@ $common-bg-color:#1b263b;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 3em;
+        padding: 12rem 3em;
+        position: relative;
         
         .about-content{
             max-width: 700px;
@@ -112,7 +113,7 @@ $common-bg-color:#1b263b;
             .wood-card{
                 background-color: #ffff;
                 color: #1b263b;
-                padding: 10px;
+                padding: 40px 25px;
                 border-radius: 5px;
                 .wood-card-header{
                     h3{
@@ -151,11 +152,25 @@ $common-bg-color:#1b263b;
                 }
             }
         }
+        .about-content::before{
+            content: 'Movies in available languages';
+            position: absolute;
+            top: 0;
+           font-size: 2.5em;
+           padding: 2em;
+           font-weight: 700;
+
+           @media(max-width:1020px){
+            top: -40px;
+            padding: 1em;
+           }
+        }
     }
     .writer-note{
         display: flex;
         justify-content: space-between;
         gap: 1em;
+        padding: 15px;
         .logo{
             img{
                 width: 100%;
@@ -164,6 +179,7 @@ $common-bg-color:#1b263b;
         .note-content{
             margin-top: 3em;
             padding: 10px;
+            text-align: justify;
            p{
             margin-top: 1em;
             line-height: 28px;
