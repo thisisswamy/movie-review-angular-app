@@ -63,6 +63,7 @@
           cursor: pointer;
           span{
             position: relative;
+            display: none;
             top: 8px;
             .mat-icon{
               font-size: 1.27em;
@@ -89,15 +90,19 @@
           position: fixed;
           left: 0;
           top: 67px;
-          height: 50vh;
+          height: 100vh;
           z-index:1;
           background-color: #ffff;
           width: 180px;
           padding: 10px;
+          padding-top: 20px;
           box-shadow: 0 0 10px 0 rgba(0 0 0/5%);
 
           li{
             padding: 8px;
+            span{
+              display: inline-block;
+            }
           }
 
         }

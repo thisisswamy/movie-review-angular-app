@@ -1,4 +1,7 @@
 <div class="wrapper">
+    <div class="signup-error" *ngIf="isUserExisted">
+      <p>User already existed ! please use other mail or Login</p>
+    </div>
     <div class="login-container">
         <form [formGroup]="signUpForm" (ngSubmit)="submit()">
             <h1>Sign up</h1>
