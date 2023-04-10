@@ -1,6 +1,6 @@
 <div class="wrapper">
     <div class="welcome-note common-margin">
-        <h2>Welcome User...!</h2>
+        <h2>Welcome {{userInfo.emailAddress}}!</h2>
         <small>Start Writting Moview Reviews.</small>
     </div>
     <div class="separator common-margin">
@@ -92,7 +92,7 @@
 
                 The app also allows users to leave their own reviews and ratings, which can be helpful for others who are looking for recommendations. Users can create accounts to save their favorite movies  </p>
 
-            <button>Write here</button>
+            <button routerLink="/my-reviews/write-review">Write here</button>
         </div>
     </div>
   

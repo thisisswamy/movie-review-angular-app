@@ -1,8 +1,9 @@
 <div class="wrapper">
+  <p class="user-pwd-error" *ngIf="isInvalidCreds">Invalid username/password</p>
   <div class="login-container">
       <form [formGroup]="loginForm" (ngSubmit)="submit()">
           <h1>Login</h1>
-          <p class="user-pwd-error" *ngIf="isInvalidCreds"></p>
+          
           <div class="form-input">
             <label for="">Username</label>
             <input type="text" 
@@ -29,9 +30,12 @@
             <a routerLink="/user/forgot-password">forgot password ?</a>
           </div>
           <div class="button-area">
-              <button>Login</button>
+              <button [disabled]="isSubmitted" [ngClass]="isSubmitted ? 'disable-button':''">Login</button>
               (or)
               <a routerLink="/user/sign-up">Sign up/Register</a>
+              <div class="spinner-area" *ngIf="isSubmitted">
+                <app-spinner></app-spinner>
+              </div>
           </div>
         </form>
         

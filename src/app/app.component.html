@@ -1,6 +1,6 @@
 <div class="wrapper">
   <header *ngIf="isUserLoggedIn">
-    <app-header></app-header>
+    <app-header #header></app-header>
   </header>
   <main>
     <router-outlet></router-outlet>

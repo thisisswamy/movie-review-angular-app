@@ -1,6 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MyErrorStateMatcher } from '../../common/services/Error-handler';
+import { HttpClient } from '@angular/common/http';
+import { v4 as uuidv4 } from 'uuid';
+import { environment } from '../../../../../g-mail-clone-app/src/environments/environment.prod';
+import { apiDetails } from 'src/environment/environment';
+import { ActivatedRoute, Router } from '@angular/router';
+import { ApplicationState } from 'src/app/store/state/application.state';
+import { Store } from '@ngrx/store';
+import { UserStatus } from 'src/app/store/action/user-login.actions';
 
 @Component({
   selector: 'app-signup',
@@ -11,7 +19,11 @@ export class SignupComponent implements OnInit {
   matcher = new MyErrorStateMatcher();
   signUpForm!:FormGroup;
   isPwdHide!:boolean;
-  constructor(private fb:FormBuilder){}
+  isUserExisted!: boolean;
+  constructor(private fb:FormBuilder,
+    private http:HttpClient,
+    private router:Router,
+    private store:Store<ApplicationState>){}
   
   ngOnInit(): void {
     this.signUpForm = this.fb.group({
@@ -21,12 +33,49 @@ export class SignupComponent implements OnInit {
     });
   }
   submit(){
+    console.log(this.signUpForm.value);
     if(this.signUpForm.invalid){
       this.signUpForm.markAllAsTouched()
       return;
     }
-    console.log(this.signUpForm.value);
+    this.isUserExisted=false;
+    const userName = uuidv4();
+    const body = {
+      "userName":userName,
+      "emailAddress": this.signUpForm.get("email")?.value,
+      "password":this.signUpForm.get("password")?.value,
+      "confirmPassword":this.signUpForm.get("confirmPassword")?.value
+    }
+
+    const endpoint = apiDetails.userMSHost() + apiDetails.user_ms_service_api.registerUser;
+
+    console.log(endpoint);
     
+
+    return new Promise<any>((resolve,reject)=>{
+      this.http.post(endpoint,body).subscribe((res:any)=>{
+    
+        if(res?.message.includes("already")){
+          this.isUserExisted=true;
+        }else{
+          this.signUpForm.reset()
+          this.store.dispatch(new UserStatus({isUserLoggedIn:true}))
+          this.router.navigate(['/home'])
+        }
+        resolve(true)
+      },err=>{
+        this.isUserExisted=false;
+        console.log(err);
+        
+      }
+      
+      )
+    })
+  
+    
+  }
+  generateUsername(data:any){
+
   }
 
   

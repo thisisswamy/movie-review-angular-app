@@ -10,11 +10,13 @@ import { SharedModule } from './common/shared/shared.module';
 import { Action, StoreModule } from '@ngrx/store';
 import { applicationReducers } from './store/reducers/application.reducer';
 
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
+
 
   ],
   imports: [
