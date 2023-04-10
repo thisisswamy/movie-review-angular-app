@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
     this.loginForm = this.fb.group({
       email: ['abcd@gmail.com', [Validators.required, Validators.email]],
-      password: ['Abcd786@', [Validators.required]],
+      password: ['Swamy786@', [Validators.required]],
     });
   }
 
@@ -77,6 +77,7 @@ export class LoginComponent implements OnInit {
     return new Promise<any>((resolve, reject) => {
       this.http.get(endpoint,{headers:header}).subscribe(
         (res: any) => {
+          apiDetails.JWT_TOKEN = "Bearer "+token;
           ApplicationHandlerService.set("userDetails",res);
           this.store.dispatch(new UserStatus({isUserLoggedIn:true}))
           this.router.navigate(['/home'])

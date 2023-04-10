@@ -3,6 +3,13 @@
     justify-content: center;
     align-items: center;
     margin: 1em 3em 3em 3em;
+    flex-direction: column;
+    .err-text{
+        padding: 15px 0;
+        p{
+            color: rgb(220, 5, 5);
+        }
+    }
     .login-container{
         max-width: 600px;
         min-width: 400px;

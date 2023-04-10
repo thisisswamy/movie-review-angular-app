@@ -1,6 +1,5 @@
 export const  apiDetails={
-    JWT_TOKEN :"Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhYmNkQGdtYWlsLmNvbSIsImV4cCI6MTY4MTEwMDI4OCwiaWF0IjoxNjgxMDY0Mjg4fQ.BNGNJ3n6zqiNVZFIdtTG3DBPKae46U6k0Q7SpCsMFSQ",
-    
+    JWT_TOKEN :'',
     review_ms_service_apis:{
         writeReview: '/api/v1/reviews/write',
         getAllReviews:'/api/v1/reviews/all',

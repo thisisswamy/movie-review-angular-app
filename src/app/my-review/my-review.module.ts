@@ -7,6 +7,7 @@ import { WriteReviewComponent } from './write-review/write-review.component';
 import { ReviewCardComponent } from './review-card/review-card.component';
 import { SharedModule } from '../common/shared/shared.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MyReviewRoutingModule,
     SharedModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
 export class MyReviewModule { }

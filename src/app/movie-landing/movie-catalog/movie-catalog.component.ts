@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApplicationHandlerService } from 'src/app/common/services/application-handler.service';
 
 @Component({
   selector: 'app-movie-catalog',
@@ -20,6 +21,7 @@ export class MovieCatalogComponent implements OnInit {
   baseURL: any = '../../../assets/images/';
   imgName:any;
   imgURL:any;
+  userInfo:any;
 
   recentMovieList =[
     { name:'RRR',rating :'5',lang:'Telugu'},
@@ -29,6 +31,7 @@ export class MovieCatalogComponent implements OnInit {
   ngOnInit(): void {
     this.imgName=this.imgList[this.index];
     this.imgURL = this.baseURL+this.imgName
+    this.userInfo=ApplicationHandlerService.get("userDetails")
   }
 
   prevImage(){

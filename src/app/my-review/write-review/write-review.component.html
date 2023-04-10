@@ -1,4 +1,7 @@
 <div class="wrapper">
+  <div class="err-text" *ngIf="isWritten">
+    <p>You have already reviewed the movie please do another..</p>
+  </div>
     <div class="login-container">
         <form [formGroup]="reviewForm" (ngSubmit)="submit()">
             <h1>Review Form</h1>
@@ -56,7 +59,7 @@
                
               </div>
             </div>
-            <div class="form-input">
+            <div class="form-input" *ngIf="false">
               <label for="">Movie poster</label>
               <input type="file" 
               formControlName="poster" 

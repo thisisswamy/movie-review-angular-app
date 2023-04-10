@@ -41,7 +41,7 @@
             </div>
             <div class="form-input">
               <label for="">Confirm Password</label>
-              <input type="text" 
+              <input type="password" 
               formControlName="confirmPassword" 
               placeholder="Enter your confirm password"
               [class.error-class]="(signUpForm.get('confirmPassword')?.errors && signUpForm.get('confirmPassword')?.touched) || (signUpForm.get('confirmPassword')?.value !== signUpForm.get('password')?.value && signUpForm.get('confirmPassword')?.touched)"
