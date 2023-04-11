@@ -5,15 +5,16 @@
                 <img src="../../../assets/images/faceoff_rrr.jpeg" alt="Movie-Image">
             </div>
             <div class="card-title">
-                <h3>R R R</h3>
+                <h3>{{obj?.movieName}}</h3>
             </div>
         </div>
         <div class="movie-des">
             <ul>
+                <li><span>Language :</span> {{obj?.language}}</li>
                 <li><span>Category :</span> Action & Drama</li>
-                <li><span>Cast&Crew :</span> NTR, Ramcharan, Rajamouli</li>
-                <li><span>Verdict :</span> Blockbuster</li>
-                <li><span>Rating :</span> 4.5/5 
+                <li><span>Cast&Crew :</span> &nbsp; <span class="castCrew" *ngFor="let cast of obj?.castCrew">{{cast+", "}}</span></li>
+                <li><span>Verdict :</span> {{obj?.verdict}}</li>
+                <li><span>Rating :</span> {{obj?.rating}}/5 
                     <span>
                     <mat-icon>star</mat-icon>
                     </span>
@@ -22,7 +23,7 @@
             </ul>
         </div>
         <div class="actions">
-            <span class="delete-icon"   (click)="delete($event)">
+            <span class="delete-icon"   (click)="delete($event,obj)">
                 <mat-icon>delete</mat-icon>
             </span>
             <!-- <span class="edit-icon" matTooltip="Edit" matTooltipPosition="above">

@@ -1,4 +1,8 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ApplicationHandlerService } from 'src/app/common/services/application-handler.service';
+import { apiDetails } from 'src/environment/environment';
 
 @Component({
   selector: 'app-review-landing',
@@ -7,19 +11,45 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReviewLandingComponent implements OnInit {
 
- 
-  public  moviesList=[
-      {name:'RRR',lang:'Telugu',rating:'4.5/5'},
-      {name:'KGF',lang:'Kannada',rating:'5/5'},
-      {name:'Kantara',lang:'Kannada',rating:'5/5'},
-      {name:'Dasara',lang:'Telugu',rating:'4/5'},
-      {name:'Rangastalam',lang:'Telugu',rating:'3/5'}
-    ]
+  public user:any;
+  public  moviesList:any=[]
+  isDataLoading!:boolean;
  
 
-  constructor(){}
+  constructor(private http:HttpClient,private router:Router){}
   ngOnInit(): void {
-    // throw new Error('Method not implemented.');
+    this.user=ApplicationHandlerService.get("userDetails")
+    this.getAllUserReviews(this.user)
+    
+  }
+  getAllUserReviews(user:any){
+    let endpoint:string=apiDetails.reviewMSHost() + apiDetails.review_ms_service_apis.getReviewsByUserName
+    const body ={
+      "userName":String(user.userName),
+    }
+    const header=new HttpHeaders({
+      "Authorization" : apiDetails.JWT_TOKEN,
+      'Content-Type': 'application/json'
+    })
+
+    return new Promise((resolve,reject)=>{
+      this.http.post(endpoint,body,{headers:header}).subscribe((res:any)=>{
+        this.moviesList=res;
+        this.isDataLoading=true;
+        if(res.length>6)
+        this.moviesList =this.moviesList.slice(-(this.moviesList.length-1/2) ,-1)
+     
+        console.log(res);
+        resolve(true)
+        
+      },
+      err=>{
+        this.isDataLoading=true;
+        console.log(err);
+        
+      }
+      )
+    })
   }
 
 }

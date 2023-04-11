@@ -5,7 +5,7 @@ export const  apiDetails={
         getAllReviews:'/api/v1/reviews/all',
         deleteAllReviews :'/api/v1/reviews/delete',
         deleteReviewByKey:'/api/v1/reviews/delete/{key}',
-        getReviewsByUserName:'/api/v1/reviews/user/{userName}',
+        getReviewsByUserName:'/api/v1/reviews/user',
         updateReview:'/api/v1/reviews/update',
 
     },
