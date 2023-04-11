@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { MovieLandingRoutingModule } from './movie-landing-routing.module';
 import { MovieCatalogComponent } from './movie-catalog/movie-catalog.component';
 import { SharedModule } from '../common/shared/shared.module';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { SharedModule } from '../common/shared/shared.module';
     CommonModule,
     MovieLandingRoutingModule,
     SharedModule,
+    HttpClientModule
 
   ],
 })

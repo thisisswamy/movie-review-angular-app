@@ -1,5 +1,7 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ApplicationHandlerService } from 'src/app/common/services/application-handler.service';
+import { apiDetails } from 'src/environment/environment';
 
 @Component({
   selector: 'app-movie-catalog',
@@ -23,15 +25,15 @@ export class MovieCatalogComponent implements OnInit {
   imgURL:any;
   userInfo:any;
 
-  recentMovieList =[
-    { name:'RRR',rating :'5',lang:'Telugu'},
-    { name:'KGF',rating :'4',lang:'Kannada'},
-    { name:'Kantara',rating :'9',lang:'Kannada'},
-    { name:'Veera Simha',rating :'3',lang:'Telugu'}]
+  recentMovieList:any=[]
+  isDataLoading!:boolean;
+
+  constructor(private http:HttpClient){}
   ngOnInit(): void {
     this.imgName=this.imgList[this.index];
     this.imgURL = this.baseURL+this.imgName
     this.userInfo=ApplicationHandlerService.get("userDetails")
+    this.getRecentMoviesOfUser(this.userInfo);
   }
 
   prevImage(){
@@ -61,5 +63,34 @@ export class MovieCatalogComponent implements OnInit {
     }else{
       return;
     }
+  }
+  getRecentMoviesOfUser(user:any){
+    let endpoint:string=apiDetails.reviewMSHost() + apiDetails.review_ms_service_apis.getReviewsByUserName
+    const body ={
+      "userName":String(user.userName),
+    }
+    const header=new HttpHeaders({
+      "Authorization" : apiDetails.JWT_TOKEN,
+      'Content-Type': 'application/json'
+    })
+
+    return new Promise((resolve,reject)=>{
+      this.http.post(endpoint,body,{headers:header}).subscribe((res:any)=>{
+        this.recentMovieList=res;
+        this.isDataLoading=true;
+        if(res.length>6)
+        this.recentMovieList =this.recentMovieList.slice(-(this.recentMovieList.length-1/2) ,-1)
+        ApplicationHandlerService.set("userMoviesList",res)
+        console.log(res);
+        resolve(true)
+        
+      },
+      err=>{
+        this.isDataLoading=true;
+        console.log(err);
+        
+      }
+      )
+    })
   }
 }

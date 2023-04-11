@@ -40,13 +40,13 @@ export class WriteReviewComponent implements OnInit {
     const endpoint: string =
       apiDetails.reviewMSHost() + apiDetails.review_ms_service_apis.writeReview;
     const body = {
-      userName: this.userInfo.userName,
-      movieName: this.reviewForm.get('name')?.value,
-      rating: this.reviewForm.get('rating')?.value,
-      verdict: this.reviewForm.get('verdict')?.value,
-      castCrew: this.reviewForm.get('castCrew')?.value.split(','),
-      language: this.reviewForm.get('lang')?.value,
-      key: this.reviewForm.get('name')?.value+new Date().valueOf(),
+      "userName": this.userInfo.userName,
+      "movieName": this.reviewForm.get('name')?.value,
+      "rating": this.reviewForm.get('rating')?.value,
+      "verdict": this.reviewForm.get('verdict')?.value,
+      "castCrew": this.reviewForm.get('castCrew')?.value.split(','),
+      "language": this.reviewForm.get('lang')?.value,
+      "key": this.reviewForm.get('name')?.value+new Date().valueOf(),
     };
     const header = new HttpHeaders({
       "Authorization": apiDetails.JWT_TOKEN,
@@ -56,14 +56,17 @@ export class WriteReviewComponent implements OnInit {
 
     return new Promise((resolve, reject) => {
       this.http
-        .post(endpoint, JSON.stringify(body), { headers:header ,responseType: 'text' })
+        .post(endpoint, body, { headers:header ,responseType: 'text' })
         .subscribe(
           (res) => {
             if(res.includes("ALready")){
               this.isWritten=true;
             }else{
-
-              this.router.navigate(['/my-reviews']);
+              this.router.navigateByUrl("/").then(()=>{
+                this.router.navigate(['/my-reviews']);
+                console.log("refreshed....");
+                
+              })
             }
           },
           (err) => {

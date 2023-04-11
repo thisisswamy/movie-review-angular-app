@@ -1,6 +1,6 @@
 .movie-catalogs{
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
     gap: 1em;
     margin: auto;
   
@@ -27,7 +27,7 @@
             }
         }
         .movie-des{
-            padding: 5px;
+            padding: 5px 12px;
             font-size: .8em;
             ul{
                 margin: 0;
@@ -44,6 +44,11 @@
                             color: #ffc600;
                         }
                    
+                    }
+                    .castCrew{
+                        color: #000000;
+                        word-break: break-word;
+                        
                     }
                 }
             }

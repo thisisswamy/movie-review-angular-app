@@ -8,14 +8,17 @@
         <span class="name">Recent Reviewed Movies</span>
         <span class="line"></span>
     </div>
+    <div class="loader-spinner" *ngIf="!isDataLoading">
+        <app-spinner></app-spinner>
+    </div>
     <div class="recent-review common-margin">
         <div class="movie-catalogs">
-            <div class="movie-card" *ngFor="let movie of recentMovieList">
+            <div class="movie-card" *ngFor="let obj of recentMovieList">
                 <div class="card-name">
-                    <p>{{movie.name}} <small>({{movie.lang}})</small></p> 
+                    <p>{{obj.movieName}} <small>({{obj.language}})</small></p> 
                 </div>
                 <div class="rating">
-                    <span>{{movie.rating}}</span>
+                    <span>{{obj.rating}}</span>
                     <span> 
                         <mat-icon>star</mat-icon>
                     </span>

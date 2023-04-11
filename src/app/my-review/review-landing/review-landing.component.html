@@ -7,6 +7,9 @@
         <input type="text" placeholder="Search Movie Here">
         <button>search</button>
     </div>
+    <div class="loader-spinner" *ngIf="!isDataLoading">
+        <app-spinner></app-spinner>
+    </div>
     <div class="review-section" >
         <app-review-card [movieDetails]="moviesList"></app-review-card>
     </div>
