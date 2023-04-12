@@ -15,6 +15,7 @@
       span {
         font-size: 1.6em;
         font-weight: 700;
+        color: #001d3d;
       }
       .menu-icon{
         cursor: pointer; 
@@ -25,7 +26,7 @@
         box-shadow:  0 0 10px 0 rgba(0 0 0/20%);
         background-color: rgb(255, 255, 255);
         .menu-bar1,.menu-bar2,.menu-bar3{
-            border: 1.3px solid rgb(14, 97, 214);
+            border: 1.3px solid #001d3d;
             width: 27px;
         }
         .menu-bar2{
@@ -60,6 +61,7 @@
         list-style: none;
         display: flex;
         li {
+          font-size: 1em;
           cursor: pointer;
           span{
             position: relative;
@@ -69,6 +71,9 @@
               font-size: 1.27em;
             }
           }
+        }
+        .activeLink{
+          color: rgb(14, 97, 214);
         }
 
         li:not(last-child) {
@@ -117,4 +122,8 @@
   }
 
   
+}
+
+.activeLink{
+  color: rgb(14, 97, 214);
 }

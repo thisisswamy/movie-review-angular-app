@@ -13,6 +13,9 @@ export class ReviewCardComponent implements OnInit{
   isDeleteClicked!:boolean;
   
   @Input()
+  searchFilter:string=''
+  
+  @Input()
   movieDetails:any
 
   movie:any;

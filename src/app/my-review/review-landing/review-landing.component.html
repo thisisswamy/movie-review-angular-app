@@ -4,14 +4,14 @@
         <button routerLink="/my-reviews/write-review">+ Write</button>
     </div>
     <div class="search-item">
-        <input type="text" placeholder="Search Movie Here">
-        <button>search</button>
+        <input  disabled type="text" placeholder="Search Movie Here" [(ngModel)]="searchFilter">
+        <button disabled >search</button>
     </div>
     <div class="loader-spinner" *ngIf="!isDataLoading">
         <app-spinner></app-spinner>
     </div>
     <div class="review-section" >
-        <app-review-card [movieDetails]="moviesList"></app-review-card>
+        <app-review-card [movieDetails]="moviesList" [searchFilter]="searchFilter"></app-review-card>
     </div>
 </div>
 

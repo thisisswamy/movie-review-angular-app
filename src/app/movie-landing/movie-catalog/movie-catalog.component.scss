@@ -4,10 +4,16 @@ $common-bg-color:#1b263b;
     
     .welcome-note{
         background-color: #fff;
-        color: #222;
         padding: 20px;
         border-radius: 8px;
         box-shadow: 0 0 5px 0 rgba(0 0 0/10%);
+
+        p{
+            font-weight: 600;
+            font-size: 1.1em;
+            padding: 10px 10px 10px 0;
+            color: #2d3047;;
+        }
     }
     .separator{
         margin: 2em 1em;

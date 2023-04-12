@@ -10,6 +10,7 @@ const routes: Routes = [
     loadChildren :()=>import('./home/home.module').then(m=>m.HomeModule)
   }, 
   
+  
   {
     path:'user',
     loadChildren :()=>import('./user/user.module').then(m=>m.UserModule)
@@ -31,6 +32,12 @@ const routes: Routes = [
     loadChildren:()=>import('./account/account.module').then(m=>m.AccountModule)
 
   },
+  {
+    path:"**",
+    redirectTo:"",
+    pathMatch:"full"
+  
+  }
 ];
 
 @NgModule({

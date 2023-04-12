@@ -4,13 +4,15 @@
             <img src="" alt="User_Image">
         </div>
         <div class="details">
-            <p class="heading"> <span>Name : </span> Swamy Thudum </p>
+            <p class="heading"> <span>Name : </span> {{userInfo.emailAddress}} </p>
             <p class="heading"> <span>Role : </span> user </p>
-            <p class="heading"> <span>Rated Movies : </span> 5 </p>
+            <p class="heading"> <span>Rated Movies : </span> {{totalMoviesCount}} </p>
 
             <div class="edit-area">
                 <button (click)="changePhoto()">change photo</button>
+                <button (click)="logout()">Logout</button>
             </div>
+
 
         </div>
     </div>

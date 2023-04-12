@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
     return new Promise<any>((resolve, reject) => {
       this.http.post(endpoint, body).subscribe(
         (res: any) => {
-          ApplicationHandlerService.set("JWT_TOKEN",res?.token)
+          apiDetails.JWT_TOKEN = "Bearer "+ res?.token;
          this.getUserInfo(res.token);
           resolve(true);
         },
@@ -73,11 +73,10 @@ export class LoginComponent implements OnInit {
 
   getUserInfo(token:any){
     const endpoint:string = apiDetails.userMSHost() + apiDetails.user_ms_service_api.validateByJWT;
-    const header= new HttpHeaders({'Authorization': "Bearer "+token});
     return new Promise<any>((resolve, reject) => {
-      this.http.get(endpoint,{headers:header}).subscribe(
+      this.http.get(endpoint).subscribe(
         (res: any) => {
-          apiDetails.JWT_TOKEN = "Bearer "+token;
+         
           ApplicationHandlerService.set("userDetails",res);
           this.store.dispatch(new UserStatus({isUserLoggedIn:true}))
           this.router.navigate(['/home'])
