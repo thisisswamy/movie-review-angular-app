@@ -69,15 +69,11 @@ export class MovieCatalogComponent implements OnInit {
     const body ={
       "userName":String(user.userName),
     }
-    const header=new HttpHeaders({
-      "Authorization" : apiDetails.JWT_TOKEN,
-      'Content-Type': 'application/json'
-    })
-
     return new Promise((resolve,reject)=>{
-      this.http.post(endpoint,body,{headers:header}).subscribe((res:any)=>{
+      this.http.post(endpoint,body).subscribe((res:any)=>{
         this.recentMovieList=res;
         this.isDataLoading=true;
+        ApplicationHandlerService.set("totalMovies",res.length)
         if(res.length>6)
         this.recentMovieList =this.recentMovieList.slice(-(this.recentMovieList.length-1/2) ,-1)
         ApplicationHandlerService.set("userMoviesList",res)

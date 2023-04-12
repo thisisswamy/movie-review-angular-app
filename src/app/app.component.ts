@@ -17,6 +17,7 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     this.store.subscribe(state=>{
       this.isUserLoggedIn=state.userLoggedStatus.isUserLoggedIn;
+     
     })
   }
   @HostListener('window:scroll', ['$event']) 

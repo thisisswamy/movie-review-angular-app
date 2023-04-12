@@ -12,7 +12,7 @@
         </div>
         <div class="nav-items" [ngClass]="isMenuOpen ? 'active' : ''">
             <ul>
-                <li routerLink="/home">
+                <li routerLink="/home"  routerLinkActive="activeLink" [routerLinkActiveOptions]="{exact: true}" >
                     <span><mat-icon>home</mat-icon></span>
                     Home
                 </li>
@@ -20,10 +20,10 @@
                     <span><mat-icon>movie</mat-icon></span>
                     Movies
                 </li> -->
-                <li routerLink="/my-reviews">
+                <li routerLink="/my-reviews" routerLinkActive="activeLink">
                     <span><mat-icon>stars</mat-icon></span>
                     My Reviews</li>
-                <li routerLink="/account">
+                <li routerLink="/account" routerLinkActive="activeLink">
                     <span><mat-icon>account_circle</mat-icon></span>
                     My Account
                 </li>

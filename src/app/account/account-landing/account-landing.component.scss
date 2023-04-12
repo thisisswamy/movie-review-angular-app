@@ -13,6 +13,8 @@
         .logo{
             border: 1px solid #222;
             border-radius: 50%;
+            width: 130px;
+            height: 130px;
             img{
                 width: 100%;
             }
@@ -29,6 +31,9 @@
             }
             .edit-area{
                 padding: 10px 10px 10px 0;
+                display: flex;
+                gap: 1em;
+                flex-wrap: wrap;
                 button{
                     cursor: pointer;
                     outline: none;

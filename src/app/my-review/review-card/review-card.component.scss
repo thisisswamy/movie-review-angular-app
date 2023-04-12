@@ -3,6 +3,16 @@
     grid-template-columns: repeat(auto-fill, minmax(280px,1fr));
     gap: 1em;
     margin: auto;
+
+    .no-data{
+        position: relative;
+        p{
+            position: relative;
+            margin: 3em 0;
+            left: 50%;
+            color: #e63946;
+        }
+    }
   
     .movie-card{
         cursor: pointer;;
@@ -50,6 +60,10 @@
                         word-break: break-word;
                         
                     }
+                }
+                .castContainer{
+                    width: 100%;
+                    height: 50px;
                 }
             }
         }
