@@ -14,7 +14,7 @@ export class ApiReqHelperInterceptor implements HttpInterceptor {
   constructor() {}
 
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    if(!request.url.includes("/auth/login")){
+    if(!request.url.includes("/auth/login") && !request.url.includes("/auth/login")){
       request =request.clone({
         setHeaders:{
           "Authorization":apiDetails.JWT_TOKEN,

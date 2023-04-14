@@ -1,11 +1,11 @@
 <div class="movie-catalogs">
     <div *ngFor="let obj of movieDetails">
         <div *ngIf="obj.movieName.toLowerCase().includes(searchFilter.toLowerCase())">
+
             <div class="movie-card" >
-    
                 <div class="card-header">
                     <div class="card-logo">
-                        <img src="../../../assets/images/faceoff_rrr.jpeg" alt="Movie-Image">
+                        <img [src]="obj?.reviewFormImage?.imageBytes" alt="Movie-Image">
                     </div>
                     <div class="card-title">
                         <h3>{{obj?.movieName}}</h3>

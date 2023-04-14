@@ -16,6 +16,15 @@
               <small *ngIf="!signUpForm.get('email')?.hasError('reuired') && signUpForm.get('email')?.hasError('email')">Invalid email address</small>
             </div>
             <div class="form-input">
+              <label for="">Display Name</label>
+              <input type="text" 
+              formControlName="displayName" 
+              placeholder="Enter your email address"
+              [class.error-class]="signUpForm.get('displayName')?.errors && signUpForm.get('displayName')?.touched"
+              >
+              <small *ngIf="signUpForm.get('displayName')?.hasError('required') && signUpForm.get('displayName')?.touched">Display is required</small>
+            </div>
+            <div class="form-input">
               <label for="">Password</label>
               <span class="eye-icon" (click)="isPwdHide = !isPwdHide">
                 <mat-icon>{{isPwdHide ? 'visibility_off' : 'visibility'}}</mat-icon>

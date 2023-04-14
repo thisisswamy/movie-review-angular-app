@@ -77,7 +77,6 @@ export class MovieCatalogComponent implements OnInit {
         if(res.length>6)
         this.recentMovieList =this.recentMovieList.slice(-(this.recentMovieList.length-1/2) ,-1)
         ApplicationHandlerService.set("userMoviesList",res)
-        console.log(res);
         resolve(true)
         
       },

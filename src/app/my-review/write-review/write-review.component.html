@@ -59,11 +59,12 @@
                
               </div>
             </div>
-            <div class="form-input" *ngIf="false">
+            <div class="form-input" *ngIf="true">
               <label for="">Movie poster</label>
               <input type="file" 
-              formControlName="poster" 
+            
               placeholder="upload poster"
+              (change)="uploadPoster($event)"
               [class.error-class]="(reviewForm.get('poster')?.errors && reviewForm.get('poster')?.touched)"
               >
               <small  *ngIf="reviewForm.get('poster')?.hasError('required') && reviewForm.get('poster')?.touched">Poster is required</small>
@@ -75,4 +76,10 @@
           
     </div>
 
+</div>
+
+<div class="refresh-popup" *ngIf="isDataSubmitted">
+  <div class="popup">
+    <app-spinner></app-spinner>
+  </div>
 </div>

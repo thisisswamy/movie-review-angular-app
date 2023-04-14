@@ -7,6 +7,7 @@ export const  apiDetails={
         deleteReviewByKey:'/api/v1/reviews/delete/{key}',
         getReviewsByUserName:'/api/v1/reviews/user',
         updateReview:'/api/v1/reviews/update',
+        writeReviewWithPoster:"/api/v1/reviews/write/poster"
 
     },
     user_ms_service_api:{
