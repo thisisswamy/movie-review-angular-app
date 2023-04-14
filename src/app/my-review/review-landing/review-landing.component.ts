@@ -21,7 +21,11 @@ export class ReviewLandingComponent implements OnInit {
   searchFilter=''
  
 
-  constructor(private http:HttpClient,private router:Router,private sanitizer:DomSanitizer,private dataService:DataService){}
+  constructor(private http:HttpClient,
+    private router:Router,
+    private sanitizer:DomSanitizer,
+    private dataService:DataService){}
+    
   ngOnInit(): void {
     this.user=ApplicationHandlerService.get("userDetails")
     this.getAllUserReviews(this.user)
@@ -42,7 +46,7 @@ export class ReviewLandingComponent implements OnInit {
         console.log(this.moviesList);
         
         if(res.length>6)
-        this.moviesList =this.moviesList.slice(-(this.moviesList.length-1/2) ,-1)
+        this.moviesList = res.slice(-Math.floor(res.length / 2));
         resolve(true)
         
       },
