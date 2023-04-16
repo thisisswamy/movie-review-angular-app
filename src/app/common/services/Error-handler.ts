@@ -18,3 +18,11 @@ export function PasswordValidator(control:AbstractControl):{[key:string] :boolea
   return password && confirmPassword && password?.value !== confirmPassword?.value ? {'misMatch':true} : null;
 }
 
+
+export class DataConstants{
+
+  public static noReloadRoutes =['/user/login','/user/sign-up', '/user/forgot-password','/user/reset-password']
+
+  public static reloadRoutes =['/my-reviews','/my-reviews/write-review','/home']
+}
+

@@ -42,13 +42,13 @@ export class WriteReviewComponent implements OnInit {
     
   }
   submit() {
-    this.isWritten = false;
-    this.isDataSubmitted=true;
+    
     if (this.reviewForm.invalid) {
       this.reviewForm.markAllAsTouched();
       return;
     }
-    
+    this.isWritten = false;
+    this.isDataSubmitted=true;
     const endpoint: string =
       // apiDetails.reviewMSHost() + apiDetails.review_ms_service_apis.writeReview;
       apiDetails.reviewMSHost() + apiDetails.review_ms_service_apis.writeReviewWithPoster;
@@ -67,11 +67,6 @@ export class WriteReviewComponent implements OnInit {
     )
     body.append("poster",this.imageFile)
  
-   
-    body.forEach(t=> console.log(t))
-
-
-
     return new Promise((resolve, reject) => {
       this.http
         .post(endpoint, body, {responseType: 'text' })

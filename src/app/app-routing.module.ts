@@ -34,8 +34,7 @@ const routes: Routes = [
   },
   {
     path:"**",
-    redirectTo:"",
-    pathMatch:"full"
+    loadChildren :()=>import('./home/home.module').then(m=>m.HomeModule)
   
   }
 ];
