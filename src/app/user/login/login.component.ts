@@ -8,6 +8,7 @@ import { UserStatus } from '../../store/action/user-login.actions';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { apiDetails } from 'src/environment/environment';
 import { ApplicationHandlerService } from 'src/app/common/services/application-handler.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -27,7 +28,8 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private store: Store<ApplicationState>,
-    private http: HttpClient
+    private http: HttpClient,
+    private cookieService:CookieService
   ) {}
 
   ngOnInit(): void {
@@ -58,6 +60,7 @@ export class LoginComponent implements OnInit {
       this.http.post(endpoint, body).subscribe(
         (res: any) => {
           apiDetails.JWT_TOKEN = "Bearer "+ res?.token;
+          this.cookieService.set("token",apiDetails.JWT_TOKEN)
          this.getUserInfo(res.token);
           resolve(true);
         },
@@ -78,6 +81,7 @@ export class LoginComponent implements OnInit {
         (res: any) => {
          
           ApplicationHandlerService.set("userDetails",res);
+          this.cookieService.set("token",apiDetails.JWT_TOKEN)
           this.store.dispatch(new UserStatus({isUserLoggedIn:true}))
           this.router.navigate(['/home'])
           resolve(true);

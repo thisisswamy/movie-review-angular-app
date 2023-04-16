@@ -9,7 +9,7 @@ import { FooterComponent } from './common/components/footer/footer.component';
 import { SharedModule } from './common/shared/shared.module';
 import { Action, StoreModule } from '@ngrx/store';
 import { applicationReducers } from './store/reducers/application.reducer';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ApiReqHelperInterceptor } from './common/shared/api-req-helper.interceptor';
 import { TitleStrategy } from '@angular/router';
 import { CustomTitleService } from './common/shared/custom-title.service';
@@ -28,6 +28,7 @@ import { CustomTitleService } from './common/shared/custom-title.service';
     AppRoutingModule,
     BrowserAnimationsModule,
     SharedModule,
+    HttpClientModule,
     StoreModule.forRoot(applicationReducers,{}),
     
   ],
