@@ -10,6 +10,8 @@ import { HttpClient } from '@angular/common/http';
 import { ApplicationHandlerService } from './common/services/application-handler.service';
 import { UserStatus } from './store/action/user-login.actions';
 import { CookieService } from 'ngx-cookie-service';
+import { SessionService } from './common/services/session.service';
+
 
 @Component({
   selector: 'app-root',
@@ -29,6 +31,7 @@ export class AppComponent implements OnInit{
     private dataService:DataService,
     private router:Router,
     private http:HttpClient,
+    private sessionService:SessionService,
     private cookieService:CookieService){
     
     this.router.events.pipe(
@@ -45,15 +48,30 @@ export class AppComponent implements OnInit{
       }
 
     })
+
+    //session
+     
     
 
    
   }
+  logOutUser(){
+    this.cookieService.delete("token")
+    this.store.dispatch(new UserStatus({isUserLoggedIn:false}))
+    this.router.navigateByUrl("/").then(()=>{
+      this.router.navigate([''])
+    })
+  }
   ngOnInit(): void {
     this.store.subscribe(state=>{
       this.isUserLoggedIn=state.userLoggedStatus.isUserLoggedIn;
+      if(this.isUserLoggedIn) {
+        this.sessionService.startSession()
+      }
      
     })
+    
+
   }
   @HostListener('window:scroll', ['$event']) 
   onScrollEvent(event:any) {

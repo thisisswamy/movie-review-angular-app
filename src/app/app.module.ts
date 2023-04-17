@@ -14,6 +14,9 @@ import { ApiReqHelperInterceptor } from './common/shared/api-req-helper.intercep
 import { TitleStrategy } from '@angular/router';
 import { CustomTitleService } from './common/shared/custom-title.service';
 
+import { SessionService } from './common/services/session.service';
+import { BnNgIdleService } from 'bn-ng-idle';
+
 
 @NgModule({
   declarations: [
@@ -41,7 +44,10 @@ import { CustomTitleService } from './common/shared/custom-title.service';
     {
       provide:TitleStrategy,
       useClass:CustomTitleService
-    }
+    },
+    SessionService,
+    BnNgIdleService
+    
   ],
   bootstrap: [AppComponent]
 })

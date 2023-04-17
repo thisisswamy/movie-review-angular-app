@@ -49,9 +49,7 @@ export class WriteReviewComponent implements OnInit {
     }
     this.isWritten = false;
     this.isDataSubmitted=true;
-    const endpoint: string =
-      // apiDetails.reviewMSHost() + apiDetails.review_ms_service_apis.writeReview;
-      apiDetails.reviewMSHost() + apiDetails.review_ms_service_apis.writeReviewWithPoster;
+    const endpoint: string =apiDetails.reviewMSHost() + apiDetails.review_ms_service_apis.writeReviewWithPoster;
     const userData = {
       userName: this.userInfo.userName,
       movieName: this.reviewForm.get('name')?.value,
@@ -62,9 +60,7 @@ export class WriteReviewComponent implements OnInit {
       key: this.reviewForm.get('name')?.value+new Date().valueOf(),
     };
     const body:FormData = new FormData()
-    body.append("reviewForm",
-    new Blob([JSON.stringify(userData)],{type:"application/json"})
-    )
+    body.append("reviewForm",new Blob([JSON.stringify(userData)],{type:"application/json"}))
     body.append("poster",this.imageFile)
  
     return new Promise((resolve, reject) => {

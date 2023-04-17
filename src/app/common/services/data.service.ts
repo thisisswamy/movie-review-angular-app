@@ -19,6 +19,11 @@ export class DataService {
    review.reviewFormImage.imageBytes = finalImageUrl
    return review;
   }
+  createSafePosterURL(review:any){
+   const finalImageUrl = this.sanitizer.bypassSecurityTrustUrl(review.posterURL);
+   review.posterURL= finalImageUrl
+   return review;
+  }
 
   dataURIToBlob(imageBytes:any,imageType:any){
     const byteString=window.atob(imageBytes);

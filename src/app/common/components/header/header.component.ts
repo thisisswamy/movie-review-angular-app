@@ -17,34 +17,6 @@ export class HeaderComponent implements OnInit {
   reloadRoutes =DataConstants.reloadRoutes
 
   constructor(private dataService:DataService, private router:Router,private activeRoute:ActivatedRoute, private http:HttpClient){
-
-
-    // this.router.events
-    // .pipe(
-    //   filter(((routerInfo: any) => routerInfo instanceof ActivationStart)),
-    //   map((x:any)=> x as ActivationStart),
-    //   pairwise()
-    // )
-    // .subscribe(([currentRoute,previousRoute])=>{
-    //     // this.router.events.pipe(filter(route => route instanceof NavigationEnd)).subscribe((endRoute:any) => {
-    //     this.router.events.pipe(filter(route => route instanceof NavigationStart)).subscribe((endRoute:any) => {
-          
-    //       // if(this.reloadRoutes.includes(endRoute)){
-    //         // this.router.navigate(['/${currentRoute.snapshot.pathFromRoot[1].url[0].path}'])
-            
-    //         console.log("route included :: "+ this.reloadRoutes.includes(endRoute.url));
-            
-
-    //       // }
-          
-    //     })
-
-    // })
-
-    // this.router.events.pipe(filter(routerInfo => routerInfo instanceof NavigationStart)).subscribe((activeRoute:any)=>{
-    //   console.log(activeRoute.url);
-      
-    // })
     
   }
 

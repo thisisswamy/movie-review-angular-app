@@ -37,16 +37,9 @@ export class ReviewLandingComponent implements OnInit {
       "userName":String(user.userName),
     }
     return new Promise<any>((resolve,reject)=>{
-      this.http.post(endpoint,body).
-      pipe(map<any,any>((reviews:any)=>reviews.map((review:any)=> this.dataService.createImageURL(review))))
-      .
-      subscribe((res:any)=>{
-        this.moviesList=res;
+      this.http.post(endpoint,body). subscribe((res:any)=>{
+        this.moviesList=res.reverse();
         this.isDataLoading=true;
-        console.log(this.moviesList);
-        
-        if(res.length>6)
-        this.moviesList = res.slice(-Math.floor(res.length / 2));
         resolve(true)
         
       },
