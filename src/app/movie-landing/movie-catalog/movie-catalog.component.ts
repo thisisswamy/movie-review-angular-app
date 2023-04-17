@@ -71,11 +71,13 @@ export class MovieCatalogComponent implements OnInit {
     }
     return new Promise((resolve,reject)=>{
       this.http.post(endpoint,body).subscribe((res:any)=>{
-        this.recentMovieList=res;
+        this.recentMovieList=res.reverse();
         this.isDataLoading=true;
         ApplicationHandlerService.set("totalMovies",res.length)
-        if(res.length>6)
-        this.recentMovieList =this.recentMovieList.slice(-(this.recentMovieList.length-1/2) ,-1)
+        if(res.length>11){
+          this.recentMovieList =this.recentMovieList.slice(-(this.recentMovieList.length-1/2) ,-1)
+
+        }
         ApplicationHandlerService.set("userMoviesList",res)
         resolve(true)
         
