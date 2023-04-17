@@ -37,8 +37,8 @@ export class ReviewLandingComponent implements OnInit {
       "userName":String(user.userName),
     }
     return new Promise<any>((resolve,reject)=>{
-      this.http.post(endpoint,body).
-      pipe(map<any,any>((reviews:any)=>reviews.map((review:any)=> this.dataService.createImageURL(review))))
+      this.http.post(endpoint,body)
+      // pipe(map<any,any>((reviews:any)=>reviews.map((review:any)=> this.dataService.createImageURL(review))))
       .
       subscribe((res:any)=>{
         this.moviesList=res;
