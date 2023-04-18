@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
   }
 
   getJWTToken(body: any) {
-    const endpoint:string = apiDetails.userMSHost() + apiDetails.user_ms_service_api.getJwtToken;
+    const endpoint:string = apiDetails.getApigatWay() + apiDetails.user_ms_service_api.getJwtToken;
     console.log(endpoint);
     return new Promise<any>((resolve, reject) => {
       this.http.post(endpoint, body).subscribe(
@@ -75,7 +75,7 @@ export class LoginComponent implements OnInit {
   }
 
   getUserInfo(token:any){
-    const endpoint:string = apiDetails.userMSHost() + apiDetails.user_ms_service_api.validateByJWT;
+    const endpoint:string = apiDetails.getApigatWay()+ apiDetails.user_ms_service_api.validateByJWT;
     return new Promise<any>((resolve, reject) => {
       this.http.get(endpoint).subscribe(
         (res: any) => {

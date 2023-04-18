@@ -24,4 +24,6 @@ export const  apiDetails={
 
     reviewMSHost:()=> 'http://localhost:8081',
     userMSHost:()=> 'http://localhost:8080',
+
+    getApigatWay:()=> 'http://localhost:8989',
 }

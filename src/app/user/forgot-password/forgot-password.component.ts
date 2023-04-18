@@ -32,7 +32,7 @@ export class ForgotPasswordComponent implements OnInit{
       "email":this.forgotPassForm.get("email")?.value
     }
   
-    const endpoint:string = apiDetails.userMSHost() +apiDetails.user_ms_service_api.forgotPassword;
+    const endpoint:string = apiDetails.getApigatWay() +apiDetails.user_ms_service_api.forgotPassword;
 
     return new Promise((resolve,reject)=>{
       this.http.post(endpoint,body).subscribe(res=>{

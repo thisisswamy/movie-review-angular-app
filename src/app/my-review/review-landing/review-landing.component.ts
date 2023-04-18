@@ -32,13 +32,14 @@ export class ReviewLandingComponent implements OnInit {
     
   }
   getAllUserReviews(user:any){
-    let endpoint:string=apiDetails.reviewMSHost() + apiDetails.review_ms_service_apis.getReviewsByUserName
+    let endpoint:string=apiDetails.getApigatWay() + apiDetails.review_ms_service_apis.getReviewsByUserName
     const body ={
       "userName":String(user.userName),
     }
     return new Promise<any>((resolve,reject)=>{
       this.http.post(endpoint,body). subscribe((res:any)=>{
-        this.moviesList=res.reverse();
+        this.moviesList=res;
+        this.moviesList=this.moviesList.reverse()
         this.isDataLoading=true;
         resolve(true)
         
