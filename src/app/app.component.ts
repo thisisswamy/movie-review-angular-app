@@ -44,7 +44,9 @@ export class AppComponent implements OnInit{
       }
       if(!this.isEnteredIf && current.id !== 1 && this.router.url === '/' && current.url!== this.router.url && !this.nonReloadedRoutes.includes(current.url)){
         this.isEnteredIf =true;
-        this.router.navigate([""])
+        console.log("router second if..");
+        
+        // this.router.navigate([""])
       }
 
     })
@@ -91,7 +93,7 @@ export class AppComponent implements OnInit{
   }
 
   async goToAPICall(route:any){
-    const endpoint:string = apiDetails.userMSHost() + apiDetails.user_ms_service_api.validateByJWT;
+    const endpoint:string = apiDetails.getApigatWay() + apiDetails.user_ms_service_api.validateByJWT;
     return new Promise<any>((resolve, reject) => {
       this.http.get(endpoint).subscribe(
         (res: any) => { 

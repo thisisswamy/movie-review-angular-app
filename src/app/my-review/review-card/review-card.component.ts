@@ -47,7 +47,7 @@ export class ReviewCardComponent implements OnInit{
   }
 
   deleteReview(movie:any){
-    let endpoint:string=apiDetails.reviewMSHost()+apiDetails.review_ms_service_apis.deleteReviewByKey;
+    let endpoint:string=apiDetails.getApigatWay()+apiDetails.review_ms_service_apis.deleteReviewByKey;
     endpoint = endpoint.replace("{key}",movie.key);
 
     const header=new HttpHeaders({

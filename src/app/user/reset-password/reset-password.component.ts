@@ -44,7 +44,7 @@ export class ResetPasswordComponent implements OnInit {
       "password":this.resetPassForm.get("password")?.value,
       "confirmPassword":this.resetPassForm.get("confirmPassword")?.value
     };
-    const endpoint:string =apiDetails.userMSHost() + apiDetails.user_ms_service_api.resetPassword;
+    const endpoint:string =apiDetails.getApigatWay() + apiDetails.user_ms_service_api.resetPassword;
     return new Promise((resolve,reject)=>{
       this.http.post(endpoint,body,{responseType:'text'}).subscribe(res=>{
         console.log(res);

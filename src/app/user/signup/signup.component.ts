@@ -49,7 +49,7 @@ export class SignupComponent implements OnInit {
       "confirmPassword":this.signUpForm.get("confirmPassword")?.value
     }
 
-    const endpoint = apiDetails.userMSHost() + apiDetails.user_ms_service_api.registerUser;
+    const endpoint = apiDetails.getApigatWay() + apiDetails.user_ms_service_api.registerUser;
 
     console.log(endpoint);
     
@@ -62,7 +62,7 @@ export class SignupComponent implements OnInit {
         }else{
           this.signUpForm.reset()
           this.store.dispatch(new UserStatus({isUserLoggedIn:true}))
-          this.router.navigate(['/home'])
+          this.router.navigate(['/user/login'])
         }
         resolve(true)
       },err=>{

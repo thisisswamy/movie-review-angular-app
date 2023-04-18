@@ -49,7 +49,7 @@ export class WriteReviewComponent implements OnInit {
     }
     this.isWritten = false;
     this.isDataSubmitted=true;
-    const endpoint: string =apiDetails.reviewMSHost() + apiDetails.review_ms_service_apis.writeReviewWithPoster;
+    const endpoint: string =apiDetails.getApigatWay() + apiDetails.review_ms_service_apis.writeReviewWithPoster;
     const userData = {
       userName: this.userInfo.userName,
       movieName: this.reviewForm.get('name')?.value,

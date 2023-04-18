@@ -32,7 +32,7 @@ export class MovieCatalogComponent implements OnInit {
   ngOnInit(): void {
     this.imgName=this.imgList[this.index];
     this.imgURL = this.baseURL+this.imgName
-    this.userInfo=ApplicationHandlerService.get("userDetails")
+   this.userInfo= ApplicationHandlerService.get("userDetails")
     this.getRecentMoviesOfUser(this.userInfo);
   }
 
@@ -65,13 +65,14 @@ export class MovieCatalogComponent implements OnInit {
     }
   }
   getRecentMoviesOfUser(user:any){
-    let endpoint:string=apiDetails.reviewMSHost() + apiDetails.review_ms_service_apis.getReviewsByUserName
+    let endpoint:string=apiDetails.getApigatWay() + apiDetails.review_ms_service_apis.getReviewsByUserName
     const body ={
       "userName":String(user.userName),
     }
     return new Promise((resolve,reject)=>{
       this.http.post(endpoint,body).subscribe((res:any)=>{
-        this.recentMovieList=res.reverse();
+        this.recentMovieList=res
+        this.recentMovieList=this.recentMovieList.reverse()
         this.isDataLoading=true;
         ApplicationHandlerService.set("totalMovies",res.length)
         if(res.length>11){
