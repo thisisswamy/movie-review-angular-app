@@ -19,6 +19,7 @@ export class ResetPasswordComponent implements OnInit {
   isPwdHide!:boolean;
   isServerError!:boolean;
   user:any;
+  isDataSubmitted!:boolean;
   constructor(private fb:FormBuilder,private router:Router,private http:HttpClient){}
 
   ngOnInit(): void {
@@ -49,10 +50,12 @@ export class ResetPasswordComponent implements OnInit {
       this.http.post(endpoint,body,{responseType:'text'}).subscribe(res=>{
         console.log(res);
         this.router.navigate(['/user/login'])
+        this.isDataSubmitted=false;
         resolve(res)
         
       },
       err=>{
+        this.isDataSubmitted=false;
         console.log(err);
         
       })

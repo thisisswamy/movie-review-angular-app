@@ -17,6 +17,7 @@ export class ForgotPasswordComponent implements OnInit{
   forgotPassForm!:FormGroup;
   isPwdHide!:boolean;
   isInvalidEmail!:boolean;
+  isDataSubmitted!:boolean;
   constructor(private fb:FormBuilder,private http:HttpClient,private router:Router){}
   ngOnInit(): void {
     this.forgotPassForm=this.fb.group({
@@ -38,12 +39,14 @@ export class ForgotPasswordComponent implements OnInit{
       this.http.post(endpoint,body).subscribe(res=>{
         console.log(res);
         ApplicationHandlerService.set("userDetails",res)
+        this.isDataSubmitted=false;
         this.router.navigate(['/user/reset-password'])
         resolve(res);
         
       },
       err=>{
         this.isInvalidEmail=true;
+        this.isDataSubmitted=false;
         console.log(err);
         
       })
