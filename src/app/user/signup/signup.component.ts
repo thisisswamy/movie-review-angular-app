@@ -20,6 +20,7 @@ export class SignupComponent implements OnInit {
   signUpForm!:FormGroup;
   isPwdHide!:boolean;
   isUserExisted!: boolean;
+  isFormSubmitted!:boolean;
   constructor(private fb:FormBuilder,
     private http:HttpClient,
     private router:Router,
