@@ -68,7 +68,7 @@ export class WriteReviewComponent implements OnInit {
         .post(endpoint, body, {responseType: 'text' })
         .subscribe(
           (res) => {
-            if(res.includes("ALready")){
+            if(res.includes("Already")){
               this.isWritten=true;
               this.isDataSubmitted=false;
             }else{
