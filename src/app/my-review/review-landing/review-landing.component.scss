@@ -25,11 +25,16 @@
         
 
     }
-    .loader-spinner{
-        margin: 4rem 0;
+    .loader-spinner, .empty-reviews{
+        margin: 3rem 0;
         display: flex;
         align-items: center;
         justify-content: center;
+
+
+        p{
+            color: #acaaaa;
+        }
     }
     .search-item{
         margin: 2em 0;

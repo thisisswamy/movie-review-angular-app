@@ -11,6 +11,9 @@
     <div class="loader-spinner" *ngIf="!isDataLoading">
         <app-spinner></app-spinner>
     </div>
+    <div class="empty-reviews" *ngIf="isDataLoading && recentMovieList.length ===0">
+        <p> No reviews written yet! please write</p>
+    </div>
     <div class="recent-review common-margin">
         <div class="movie-catalogs">
             <div class="movie-card" *ngFor="let obj of recentMovieList">

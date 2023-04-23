@@ -10,6 +10,9 @@
     <div class="loader-spinner" *ngIf="!isDataLoading">
         <app-spinner></app-spinner>
     </div>
+    <div class="empty-reviews" *ngIf="isDataLoading && moviesList.length ===0">
+        <p> No reviews written yet! please write</p>
+    </div>
     <div class="review-section" >
         <app-review-card [movieDetails]="moviesList" [searchFilter]="searchFilter"></app-review-card>
     </div>
