@@ -18,11 +18,15 @@ export class ReviewCardComponent implements OnInit{
   @Input()
   movieDetails:any
 
+  imageRootPath:string='./assets/images/'
+
   movie:any;
 
   constructor(private http:HttpClient,private router:Router){}
 
   ngOnInit(): void {
+    console.log(this.movieDetails);
+    
    
   }
   delete(event:any,movie:any){

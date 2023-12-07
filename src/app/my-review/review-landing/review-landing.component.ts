@@ -38,8 +38,8 @@ export class ReviewLandingComponent implements OnInit {
     }
     return new Promise<any>((resolve,reject)=>{
       this.http.post(endpoint,body).
-      pipe(map<any,any>((reviews:any)=>reviews.map((review:any)=> this.dataService.createImageURL(review))))
-      .
+      // pipe(map<any,any>((reviews:any)=>reviews.map((review:any)=> this.dataService.createImageURL(review))))
+      // .
       subscribe((res:any)=>{
         this.moviesList=res;
         this.isDataLoading=true;
