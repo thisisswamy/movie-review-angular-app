@@ -13,6 +13,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ApiReqHelperInterceptor } from './common/shared/api-req-helper.interceptor';
 import { TitleStrategy } from '@angular/router';
 import { CustomTitleService } from './common/shared/custom-title.service';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { latesAppReducers } from './custom-store/reducers/latest-app-state.reducer';
 
 
 @NgModule({
@@ -30,6 +32,8 @@ import { CustomTitleService } from './common/shared/custom-title.service';
     SharedModule,
     HttpClientModule,
     StoreModule.forRoot(applicationReducers,{}),
+    StoreModule.forRoot(latesAppReducers,{}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() }),
     
   ],
   providers: [

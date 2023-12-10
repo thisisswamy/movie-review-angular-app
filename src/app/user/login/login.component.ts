@@ -9,6 +9,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { apiDetails } from 'src/environment/environment';
 import { ApplicationHandlerService } from 'src/app/common/services/application-handler.service';
 import { CookieService } from 'ngx-cookie-service';
+import { LatestAppState } from 'src/app/custom-store/state/LatestestApp.state';
+import { userAuthentication } from 'src/app/custom-store/actions/user-authentication.actions';
 
 @Component({
   selector: 'app-login',
@@ -28,6 +30,7 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private router: Router,
     private store: Store<ApplicationState>,
+    private _store: Store<LatestAppState>,
     private http: HttpClient,
     private cookieService:CookieService
   ) {}
@@ -54,7 +57,8 @@ export class LoginComponent implements OnInit {
   }
 
   getJWTToken(body: any) {
-    const endpoint:string = apiDetails.userMSHost() + apiDetails.user_ms_service_api.getJwtToken;
+    // const endpoint:string = apiDetails.userMSHost() + apiDetails.user_ms_service_api.getJwtToken;
+    const endpoint:string = apiDetails.getBaseURL() + apiDetails.user_ms_service_api.getJwtToken;
     console.log(endpoint);
     return new Promise<any>((resolve, reject) => {
       this.http.post(endpoint, body).subscribe(
@@ -82,7 +86,12 @@ export class LoginComponent implements OnInit {
          
           ApplicationHandlerService.set("userDetails",res);
           this.cookieService.set("token",apiDetails.JWT_TOKEN)
-          this.store.dispatch(new UserStatus({isUserLoggedIn:true}))
+          // this.store.dispatch(new UserStatus({isUserLoggedIn:true}))
+          this._store.dispatch(userAuthentication({
+            isUserLoggedIn: true,
+            userRole: '',
+            lastLoggedIn: undefined
+          }))
           this.router.navigate(['/home'])
           resolve(true);
         },

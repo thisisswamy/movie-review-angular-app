@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { CanActivate } from '@angular/router';
+import { CanActivate, Router } from '@angular/router';
 import { ApplicationState } from '../../store/state/application.state';
 import { Store } from '@ngrx/store';
+import { LatestAppState } from 'src/app/custom-store/state/LatestestApp.state';
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +10,16 @@ import { Store } from '@ngrx/store';
 export class AuthenticationGuard implements CanActivate {
   isUserLoggedIn!:boolean;
 
-  constructor(private store:Store<ApplicationState>){}
+  constructor(private store:Store<ApplicationState>,private router:Router,
+    private _store:Store<LatestAppState>){}
   async canActivate(): Promise<any> {
-    this.store.subscribe(state=>{
-      this.isUserLoggedIn=state.userLoggedStatus.isUserLoggedIn;
+    this._store.subscribe(state=>{
+      // this.isUserLoggedIn=state.userLoggedStatus.isUserLoggedIn;
+      this.isUserLoggedIn = state.userAuthStatus.isUserLoggedIn;
     })
+    if(!this.isUserLoggedIn){
+      this.router.navigate(['/'])
+    }
    return this.isUserLoggedIn;
   
   }

@@ -32,7 +32,8 @@ export class ReviewLandingComponent implements OnInit {
     
   }
   getAllUserReviews(user:any){
-    let endpoint:string=apiDetails.reviewMSHost() + apiDetails.review_ms_service_apis.getReviewsByUserName
+    // let endpoint:string=apiDetails.reviewMSHost() + apiDetails.review_ms_service_apis.getReviewsByUserName
+    let endpoint:string=apiDetails.getBaseURL() + apiDetails.review_ms_service_apis.getReviewsByUserName
     const body ={
       "userName":String(user.userName),
     }

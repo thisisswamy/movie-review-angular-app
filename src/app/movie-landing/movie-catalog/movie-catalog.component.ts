@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ApplicationHandlerService } from 'src/app/common/services/application-handler.service';
 import { apiDetails } from 'src/environment/environment';
 
@@ -8,7 +8,7 @@ import { apiDetails } from 'src/environment/environment';
   templateUrl: './movie-catalog.component.html',
   styleUrls: ['./movie-catalog.component.scss'],
 })
-export class MovieCatalogComponent implements OnInit {
+export class MovieCatalogComponent implements OnInit{
   
   isFirstImg!:boolean;
   isLastImg!:boolean;
@@ -29,6 +29,7 @@ export class MovieCatalogComponent implements OnInit {
   isDataLoading!:boolean;
 
   constructor(private http:HttpClient){}
+
   ngOnInit(): void {
     this.imgName=this.imgList[this.index];
     this.imgURL = this.baseURL+this.imgName
@@ -65,7 +66,8 @@ export class MovieCatalogComponent implements OnInit {
     }
   }
   getRecentMoviesOfUser(user:any){
-    let endpoint:string=apiDetails.reviewMSHost() + apiDetails.review_ms_service_apis.getReviewsByUserName
+    // let endpoint:string=apiDetails.reviewMSHost() + apiDetails.review_ms_service_apis.getReviewsByUserName
+    let endpoint:string=apiDetails.getBaseURL() + apiDetails.review_ms_service_apis.getReviewsByUserName
     const body ={
       "userName":String(user.userName),
     }

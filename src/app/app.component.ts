@@ -10,6 +10,7 @@ import { HttpClient } from '@angular/common/http';
 import { ApplicationHandlerService } from './common/services/application-handler.service';
 import { UserStatus } from './store/action/user-login.actions';
 import { CookieService } from 'ngx-cookie-service';
+import { LatestAppState } from './custom-store/state/LatestestApp.state';
 
 @Component({
   selector: 'app-root',
@@ -25,7 +26,7 @@ export class AppComponent implements OnInit{
   isEnteredIf!:boolean;
   @ViewChild("header") header:any;
   
-  constructor(private store:Store<ApplicationState>, 
+  constructor(private store:Store<LatestAppState>, 
     private dataService:DataService,
     private router:Router,
     private http:HttpClient,
@@ -51,7 +52,7 @@ export class AppComponent implements OnInit{
   }
   ngOnInit(): void {
     this.store.subscribe(state=>{
-      this.isUserLoggedIn=state.userLoggedStatus.isUserLoggedIn;
+      this.isUserLoggedIn=state.userAuthStatus.isUserLoggedIn;
      
     })
   }
